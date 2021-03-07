@@ -1,8 +1,15 @@
 site_name: ML Aide
 theme:
   name: material
+  palette:
+    scheme: mlaide
   features:
     - navigation.sections
+    - search.highlight
+    - search.share
+  icon:
+    repo: fontawesome/brands/github
+repo_url: https://github.com/MLAide/docs
 nav:
   - index.md
   - "Getting Started":
@@ -30,6 +37,7 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
 plugins:
   - render_swagger
+  - search
   - mkdocstrings:
       watch:
         - ./../../core/python-sdk/src
