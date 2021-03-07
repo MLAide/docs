@@ -5,26 +5,29 @@ theme:
     - navigation.sections
 nav:
   - index.md
-  - 'Getting Started':
-    - start/quickstart.md
-    - start/environment-setup.md
-  - 'Concepts':
-    - concepts/core.md
-    - concepts/data-structure.md
-  - 'Tutorial':
-    - tutorial/introduction.md
-    - tutorial/create-project.md
-    - tutorial/data-preparation.md
-    - tutorial/model-training.md
-    - tutorial/model-evaluation.md
-    - tutorial/productionize-model.md
-  - 'API Reference':
-    - api-reference/python-sdk.md
-    - api-reference/rest-api.md
+  - "Getting Started":
+      - start/quickstart.md
+      - start/environment-setup.md
+  - "Concepts":
+      - concepts/core.md
+      - concepts/data-structure.md
+  - "Tutorial":
+      - tutorial/introduction.md
+      - tutorial/create-project.md
+      - tutorial/data-preparation.md
+      - tutorial/model-training.md
+      - tutorial/model-evaluation.md
+      - tutorial/productionize-model.md
+  - "API Reference":
+      - api-reference/python-sdk.md
+      - api-reference/rest-api.md
 extra_css:
   - css/material-enhancements.css
 markdown_extensions:
   - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
 plugins:
   - render_swagger
   - mkdocstrings:
