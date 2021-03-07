@@ -1,0 +1,21 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+mkdocs = "*"
+mkdocs-material = "*"
+mkdocstrings = "*"
+mlaide = {editable = false, path = "./../python-client"}
+mkdocs-render-swagger-plugin = "*"
+python-dateutil = "2.8.1"
+httpx = "0.16.1"
+cloudpickle = "1.6.0"
+dataclasses-json = "0.5.2"
+marshmallow = "3.10.0"
+
+[packages]
+
+[requires]
+python_version = "3.8"
