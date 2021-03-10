@@ -16,7 +16,16 @@ nav:
       - start/quickstart.md
       - start/environment-setup.md
   - "Concepts":
-      - concepts/core.md
+      - concepts/index.md
+      - "Essentials":
+          - concepts/essentials/index.md
+          - concepts/essentials/projects.md
+          - concepts/essentials/experiments.md
+          - concepts/essentials/runs.md
+          - concepts/essentials/artifacts.md
+          - concepts/essentials/models.md
+          - concepts/essentials/users.md
+      - concepts/architecture.md
       - concepts/data-structure.md
   - "Tutorial":
       - tutorial/introduction.md
@@ -31,10 +40,16 @@ nav:
 extra_css:
   - css/material-enhancements.css
 markdown_extensions:
+  - admonition
   - attr_list
+  - pymdownx.details
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.tabbed
+  - pymdownx.snippets
+  - pymdownx.superfences
 plugins:
   - render_swagger
   - search

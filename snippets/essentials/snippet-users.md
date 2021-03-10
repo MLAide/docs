@@ -1,0 +1,1 @@
+Users have rights for none, one or many projects and can have different roles within each project. Available roles are _Owner_, _Contributor_ and _Viewer_.
