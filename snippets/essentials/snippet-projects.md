@@ -2,4 +2,4 @@ Projects are at the top hierarchy level and group several experiments that belon
 
 ???+ example "Example"
 
-    Project: House Price Prediction_
+    _Project: House Price Prediction_
