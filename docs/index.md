@@ -31,17 +31,17 @@ Run ML Aide on your local environment
 
 [Start Now](start/quickstart.md){: .md-button}
 
-## Concepts
-
-Learn the fundamental concepts of ML Aide
-
-[Learn More](concepts/architecture.md){: .md-button}
-
 ## Tutorial
 
 Walk through the model development process with ML Aide
 
 [View Tutorial](tutorial/introduction.md){: .md-button}
+
+## Essentials
+
+Learn the essentials of ML Aide
+
+[Learn More](essentials/index.md){: .md-button}
 
 ## API Reference
 
