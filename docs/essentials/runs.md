@@ -16,7 +16,8 @@
 ???+ note "Instructions"
     === "Code"
         ```python
-        TODO Raman: Add code
+        run = mlaide_client.start_new_run(experiment_key='linear-regression',
+                                          run_name='linear regression')
         ```
 
 ### Toggle Paramenters

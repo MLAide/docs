@@ -26,10 +26,6 @@
             - _Experiment tags - optional_
             - _Experiment status_
         5. Confirm by clicking the _Create_ button
-    === "Code"
-        ```python
-        TODO Raman: Add code
-        ```
 
 ### Edit Experiment
 
@@ -43,10 +39,6 @@
             - _Experiment tags_
             - _Experiment status_
         5. Confirm by clicking the _Update_ button
-    === "Code"
-        ```python
-        TODO Raman: Add code
-        ```
 
 ### Show Details
 ???+ note "Instructions"
