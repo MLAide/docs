@@ -12,3 +12,7 @@ mkdocs serve
 ## Deploy
 
 `mkdocs gh-deploy`
+
+## Documentation
+
+https://mlaide.github.io/docs/
