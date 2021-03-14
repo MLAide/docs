@@ -29,6 +29,7 @@ nav:
       - essentials/runs.md
       - essentials/artifacts.md
       - essentials/models.md
+      - essentials/project-settings.md
       - essentials/users.md
   #- "Architecture":
   #- architecture/index.md

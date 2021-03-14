@@ -32,6 +32,12 @@ Please see [artifacts page](./artifacts.md) for further details.
 
 Please see [models page](./models.md) for further details.
 
+## Project Settings
+
+--8<-- "snippets/essentials/snippet-project-settings.md"
+
+Please see [project settings page](./project-settings.md) for further details.
+
 ## Users
 
 --8<-- "snippets/essentials/snippet-users.md"
