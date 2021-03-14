@@ -2,13 +2,9 @@ Models are a special type of artifact named _model_ and have a special status in
 
 ???+ example "Example"
 
-    _Experiment 1: TODO Raman: Find a good example_
+    _Experiment 1: Linear Regression_
 
-    - _Run 1: TODO Raman: Find a good example_
-        - _Artifact 1: TODO Raman: Find a good example_
-        - _Artifact 2: TODO Raman: Find a good example_
-    - _Run 2: TODO Raman: Find a good example_
-        - _Artifact 1: TODO Raman: Find a good example_
-        - _Artifact 2: TODO Raman: Find a good example_
-    - _Run 3: TODO Raman: Find a good example_
-        - _Model 1: TODO Raman: Find a good example_
+    - _Run 1: Linear Regression Training 1_
+        - _Artifact 1: Model 1_
+    - _Run 2: Linear Regression Training 2_
+        - _Artifact 1: Model 2_

@@ -14,10 +14,13 @@
 ???+ note "Instructions"
     === "Code"
         ```python
-        TODO Raman: Add code
+        lin_reg = LinearRegression()
+        lin_reg.fit(X_train, y_train)
+
+        run.log_model(lin_reg, model_name="linear regression model")
         ```
 
-### Edit Experiment
+### Edit Model
 
 ???+ note "Instructions"
     === "GUI"
@@ -28,10 +31,6 @@
             - _Model stage_
             - _Note - optional_ 
         5. Confirm by clicking the _Update_ button
-    === "Code"
-        ```python
-        TODO Raman: Add code
-        ```
 
 ### Show Stage Log
 

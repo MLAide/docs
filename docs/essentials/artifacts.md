@@ -16,5 +16,6 @@
 ???+ note "Instructions"
     === "Code"
         ```python
-        TODO Raman: Add code
+        artifact = run.create_artifact(name="my-dataset", artifact_type="dataset", metadata={})
+        run.add_artifact_file(artifact, 'dataset.csv')
         ```

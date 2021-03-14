@@ -4,11 +4,11 @@ Runs belong to exactly one project and to none, one or many experiments. However
 
     _Project: House Price Prediction_
 
-    - _Experiment 1: TODO Raman: Find a good example_
-        - _Run 1: TODO Raman: Find a good example_
-        - _Run 2: TODO Raman: Find a good example_
-        - _Run 3: TODO Raman: Find a good example_
-    - _Experiment 2: TODO Raman: Find a good example_
-        - _Run 1: TODO Raman: Find a good example_
-        - _Run 4: TODO Raman: Find a good example_
-        - _Run 5: TODO Raman: Find a good example_
+    - _Experiment 1: Linear Regression_
+        - _Run 1: Data Preparation_
+        - _Run 2: Test Train Split_
+        - _Run 3: Linear Regression Training_
+    - _Experiment 2: Random Forest Regression_
+        - _Run 1: Data Preparation_
+        - _Run 2: Test Train Split_
+        - _Run 4: Random Forest Regression Training_

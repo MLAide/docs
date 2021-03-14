@@ -3,7 +3,7 @@
 --8<-- "snippets/essentials/snippet-project-settings.md"
 
 ## Roles & Rights Overview
-TODO Raman: Check create roles & rights overview as table
+TODO: Check create roles & rights overview as table
 
 ## Features
 

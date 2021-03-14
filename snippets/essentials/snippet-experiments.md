@@ -4,6 +4,6 @@ Experiments belong to exactly one project and group several runs that belong to 
 
     _Project: House Price Prediction_
 
-    - _Experiment 1: TODO Raman: Find a good example_
-    - _Experiment 2: TODO Raman: Find a good example_
-    - _Experiment 3: TODO Raman: Find a good example_
+    - _Experiment 1: Linear Regression_
+    - _Experiment 2: Random Forest Regression_
+    - _Experiment 3: Random Forest Regression with HP tuning_
