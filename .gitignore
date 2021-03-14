@@ -7,6 +7,7 @@ dist
 .basement
 config.local.js
 basement_dist
+.prettierignore
 
 
 # MkDocs documentation
