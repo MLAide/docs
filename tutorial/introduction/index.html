@@ -318,8 +318,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#work-in-progress" class="md-nav__link">
-    Work in Progress
+  <a href="#run-ml-aide" class="md-nav__link">
+    Run ML Aide
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-workspace-directory" class="md-nav__link">
+    Create a workspace directory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-dependencies-via-pip" class="md-nav__link">
+    Install dependencies via pip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-ml-aide-project" class="md-nav__link">
+    Create ML Aide project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-an-api-key" class="md-nav__link">
+    Create an API key
   </a>
   
 </li>
@@ -337,8 +365,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../create-project/" class="md-nav__link">
-        Create Project
+      <a href="../create-connection/" class="md-nav__link">
+        Create Connection to App
       </a>
     </li>
   
@@ -501,6 +529,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../essentials/project-settings/" class="md-nav__link">
+        Project Settings
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../essentials/users/" class="md-nav__link">
         Users
       </a>
@@ -595,8 +635,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#work-in-progress" class="md-nav__link">
-    Work in Progress
+  <a href="#run-ml-aide" class="md-nav__link">
+    Run ML Aide
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-workspace-directory" class="md-nav__link">
+    Create a workspace directory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-dependencies-via-pip" class="md-nav__link">
+    Install dependencies via pip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-ml-aide-project" class="md-nav__link">
+    Create ML Aide project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-an-api-key" class="md-nav__link">
+    Create an API key
   </a>
   
 </li>
@@ -619,7 +687,39 @@
                 
                 
                 <h1 id="introduction">Introduction</h1>
-<h2 id="work-in-progress"><img alt="🚧" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f6a7.svg" title=":construction:" /> Work in Progress <img alt="🚧" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f6a7.svg" title=":construction:" /></h2>
+<p>In this tutorial, we will use the <a href="https://www.kaggle.com/vedavyasv/usa-housing">USA Housing dataset</a> 
+to predict prices of houses in Boston. To keep things simple for this tutorial we won't use 
+Jupyter Notebooks. Instead, we write just simple Python code.</p>
+<p>We will use the dataset to train some machine learning models. All processed data and all experiments
+should be tracked in ML Aide. We also want to store the trained models in ML Aide for later usage.</p>
+<p>To get started we need some initial work to be done</p>
+<h2 id="run-ml-aide">Run ML Aide</h2>
+<p>For this tutorial ML Aide server and web UI is needed. The <a href="../../start/quickstart/">quickstart</a> helps to get ML Aide running.</p>
+<h2 id="create-a-workspace-directory">Create a workspace directory</h2>
+<p>In this tutorial, we will use <code>~/mlaide-tutorial/</code> as our working directory.</p>
+<h2 id="install-dependencies-via-pip">Install dependencies via pip</h2>
+<p>Open a terminal in the working directory and install all dependencies.
+<div class="highlight"><pre><span></span><code>cd ~/mlaide-tutorial
+pip install scikit-learn pandas mlaide
+</code></pre></div></p>
+<h2 id="create-ml-aide-project">Create ML Aide project</h2>
+<ul>
+<li>Open the <a href="http://localhost:8880">ML Aide Web UI on localhost:8880</a></li>
+<li>Login as adam (username = <code>adam</code>; password = <code>adam1</code>)</li>
+<li>Click on <code>Add Project</code> to create a new project - enter <code>USA Housing</code> as project name</li>
+</ul>
+<h2 id="create-an-api-key">Create an API key</h2>
+<p>Later we want to send all parameters, metrics, and models of our experiments to ML Aide. 
+Therefore we need to set an API key in our python client. Otherwise, we won't be able
+to authenticate against the ML Aide server.</p>
+<ul>
+<li>In the upper right click on <code>adam</code> &gt; <code>Settings</code></li>
+<li>Go to <code>API Keys</code> in the left navigation</li>
+<li>Click on <code>Add API Key</code></li>
+<li>Enter any description and click on <code>Create</code></li>
+<li>Copy the show API key and store it somewhere safe. The API key won't be shown again. If you lose your API key you have to create a new one.</li>
+</ul>
+<p>Now you should have everything up and running to start coding.</p>
                 
               
               
@@ -652,13 +752,13 @@
         </a>
       
       
-        <a href="../create-project/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../create-connection/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Create Project
+              Create Connection to App
             </div>
           </div>
           <div class="md-footer__button md-icon">

@@ -299,8 +299,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../create-project/" class="md-nav__link">
-        Create Project
+      <a href="../create-connection/" class="md-nav__link">
+        Create Connection to App
       </a>
     </li>
   
@@ -366,8 +366,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#work-in-progress" class="md-nav__link">
-    Work in Progress
+  <a href="#compare-runs" class="md-nav__link">
+    Compare runs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualize-lineage" class="md-nav__link">
+    Visualize Lineage
   </a>
   
 </li>
@@ -501,6 +508,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../essentials/project-settings/" class="md-nav__link">
+        Project Settings
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../essentials/users/" class="md-nav__link">
         Users
       </a>
@@ -595,8 +614,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#work-in-progress" class="md-nav__link">
-    Work in Progress
+  <a href="#compare-runs" class="md-nav__link">
+    Compare runs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualize-lineage" class="md-nav__link">
+    Visualize Lineage
   </a>
   
 </li>
@@ -619,7 +645,21 @@
                 
                 
                 <h1 id="model-evaluation">Model Evaluation</h1>
-<h2 id="work-in-progress"><img alt="🚧" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f6a7.svg" title=":construction:" /> Work in Progress <img alt="🚧" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f6a7.svg" title=":construction:" /></h2>
+<h2 id="compare-runs">Compare runs</h2>
+<p>A key feature of ML Aide is to compare several runs with their parameters and metrics.
+Therefore open the <a href="http://localhost:8880/projects/usa-housing/runs">Web UI</a> and
+select all runs that should be compared. In this case, we want to compare 
+<code>linear regression</code> and <code>lasso model</code>. Select the two checkboxes and click on
+the <code>Compare</code> button at the top of the table.</p>
+<p>You will see all parameters and metrics of the two runs. All values that
+are not equal will be highlighted.</p>
+<h2 id="visualize-lineage">Visualize Lineage</h2>
+<p>Sometimes you want to know how a model was build or which runs (steps) were executed
+in a particular experiment. For this, you can use the lineage visualization of experiments.</p>
+<p>Go to the <a href="http://localhost:8880/projects/usa-housing-2/experiments">Experiment View</a> and select
+an experiment. You will see all runs (blue color) and all input/output artifacts (red color).</p>
+<p>The table below shows you all runs and artifacts. From the runs table, you can jump the run details
+or to the run comparison.</p>
                 
               
               

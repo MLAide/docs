@@ -299,8 +299,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../create-project/" class="md-nav__link">
-        Create Project
+      <a href="../create-connection/" class="md-nav__link">
+        Create Connection to App
       </a>
     </li>
   
@@ -354,8 +354,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#work-in-progress" class="md-nav__link">
-    Work in Progress
+  <a href="#train-test-split" class="md-nav__link">
+    Train Test Split
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linear-regression" class="md-nav__link">
+    Linear Regression
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lasso-regression" class="md-nav__link">
+    Lasso Regression
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
   </a>
   
 </li>
@@ -501,6 +522,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../essentials/project-settings/" class="md-nav__link">
+        Project Settings
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../essentials/users/" class="md-nav__link">
         Users
       </a>
@@ -595,8 +628,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#work-in-progress" class="md-nav__link">
-    Work in Progress
+  <a href="#train-test-split" class="md-nav__link">
+    Train Test Split
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linear-regression" class="md-nav__link">
+    Linear Regression
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lasso-regression" class="md-nav__link">
+    Lasso Regression
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
   </a>
   
 </li>
@@ -619,7 +673,139 @@
                 
                 
                 <h1 id="model-training">Model Training</h1>
-<h2 id="work-in-progress"><img alt="🚧" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f6a7.svg" title=":construction:" /> Work in Progress <img alt="🚧" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f6a7.svg" title=":construction:" /></h2>
+<p>In the last chapter, we have loaded the USA Housing dataset. Now we will train two different
+models on this dataset. All details of the training will be tracked in ML Aide.</p>
+<h2 id="train-test-split">Train Test Split</h2>
+<p>Before we train our model, we have to split the dataset for training and testing.
+Usually, the split will be done randomly. ML Aide helps you to keep things reproducible.</p>
+<p>We start a new run to track the split. Also, we set the dataset as an input artifact.</p>
+<div class="highlight"><pre><span></span><code><span class="n">artifact_ref</span> <span class="o">=</span> <span class="n">ArtifactRef</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;USA housing dataset&quot;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">run_pipeline_setup</span> <span class="o">=</span> <span class="n">mlaide_client</span><span class="o">.</span><span class="n">start_new_run</span><span class="p">(</span><span class="n">experiment_key</span><span class="o">=</span><span class="s1">&#39;linear-regression&#39;</span><span class="p">,</span> 
+                                                 <span class="n">run_name</span><span class="o">=</span><span class="s1">&#39;pipeline setup&#39;</span><span class="p">,</span> 
+                                                 <span class="n">used_artifacts</span><span class="o">=</span><span class="p">[</span><span class="n">artifact_ref</span><span class="p">])</span>
+</code></pre></div>
+<p>Now we split our dataset and link all information related to the split to our run.
+In this case we want to track all arguments (<code>test_size</code> and <code>random_state</code>) of the 
+<code>train_test_split()</code> function.</p>
+<div class="highlight"><pre><span></span><code><span class="n">X</span> <span class="o">=</span> <span class="n">housing_data</span><span class="p">[[</span><span class="s1">&#39;Avg. Area Income&#39;</span><span class="p">,</span> <span class="s1">&#39;Avg. Area House Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Avg. Area Number of Rooms&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;Avg. Area Number of Bedrooms&#39;</span><span class="p">,</span> <span class="s1">&#39;Area Population&#39;</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">housing_data</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span>
+
+<span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span>
+<span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="n">test_size</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
+
+<span class="n">run_pipeline_setup</span><span class="o">.</span><span class="n">log_parameter</span><span class="p">(</span><span class="s1">&#39;test_size&#39;</span><span class="p">,</span> <span class="n">test_size</span><span class="p">)</span>
+<span class="n">run_pipeline_setup</span><span class="o">.</span><span class="n">log_parameter</span><span class="p">(</span><span class="s1">&#39;random_state&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="p">)</span>
+</code></pre></div>
+<p>If you have a close look at the data, you can see that all X values must be scaled, before we can use them.
+We use the <code>StandardScaler</code> of sklearn. The scaler that will be fitted here, must also be used later for predicting new values. ML Aide makes this easy by just storing the scaler (or the whole pipeline) in
+ML Aide as an artifact. The artifact can be loaded later in a separate process for predicting.</p>
+<div class="highlight"><pre><span></span><code><span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s1">&#39;std_scalar&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">())</span>
+<span class="p">])</span>
+
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">run_pipeline_setup</span><span class="o">.</span><span class="n">log_model</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;pipeline&quot;</span><span class="p">)</span>
+<span class="n">run_pipeline_setup</span><span class="o">.</span><span class="n">set_completed_status</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="linear-regression">Linear Regression</h2>
+<p>After the train-test-split, we can fit a linear regression model. We start a new run and link dataset and the pipeline as input artifacts.</p>
+<div class="highlight"><pre><span></span><code><span class="n">dataset_artifact_ref</span> <span class="o">=</span> <span class="n">ArtifactRef</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;USA housing dataset&quot;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pipeline_artifact_ref</span> <span class="o">=</span> <span class="n">ArtifactRef</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;pipeline&quot;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">run_linear_regression</span> <span class="o">=</span> <span class="n">mlaide_client</span><span class="o">.</span><span class="n">start_new_run</span><span class="p">(</span><span class="n">experiment_key</span><span class="o">=</span><span class="s1">&#39;linear-regression&#39;</span><span class="p">,</span>
+                                                    <span class="n">run_name</span><span class="o">=</span><span class="s1">&#39;linear regression&#39;</span><span class="p">,</span>
+                                                    <span class="n">used_artifacts</span><span class="o">=</span><span class="p">[</span><span class="n">dataset_artifact_ref</span><span class="p">,</span> <span class="n">pipeline_artifact_ref</span><span class="p">])</span>
+</code></pre></div>
+<p>Now just fit your model as usual. After that, you can log the model with <code>log_model()</code> in ML Aide.</p>
+<div class="highlight"><pre><span></span><code><span class="n">lin_reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">lin_reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">run_linear_regression</span><span class="o">.</span><span class="n">log_model</span><span class="p">(</span><span class="n">lin_reg</span><span class="p">,</span> <span class="s1">&#39;linear regression&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>Finally, we calculate some model metrics. The metrics will also be tracked in ML Aide.</p>
+<div class="highlight"><pre><span></span><code><span class="n">test_pred</span> <span class="o">=</span> <span class="n">lin_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">train_pred</span> <span class="o">=</span> <span class="n">lin_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="n">mae</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">test_pred</span><span class="p">)</span>
+<span class="n">mse</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">test_pred</span><span class="p">)</span>
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">test_pred</span><span class="p">))</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">test_pred</span><span class="p">)</span>
+<span class="n">cross_validation</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">LinearRegression</span><span class="p">(),</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="n">run_linear_regression</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s1">&#39;mae&#39;</span><span class="p">,</span> <span class="n">mae</span><span class="p">)</span>
+<span class="n">run_linear_regression</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s1">&#39;mse&#39;</span><span class="p">,</span> <span class="n">mse</span><span class="p">)</span>
+<span class="n">run_linear_regression</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s1">&#39;rmse&#39;</span><span class="p">,</span> <span class="n">rmse</span><span class="p">)</span>
+<span class="n">run_linear_regression</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s1">&#39;r2&#39;</span><span class="p">,</span> <span class="n">r2</span><span class="p">)</span>
+<span class="n">run_linear_regression</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s1">&#39;cross validation&#39;</span><span class="p">,</span> <span class="n">cross_validation</span><span class="p">)</span>
+
+<span class="n">run_linear_regression</span><span class="o">.</span><span class="n">set_completed_status</span><span class="p">()</span>
+</code></pre></div>
+<p>Now you see the run <code>linear regression</code> in the <a href="http://localhost:8880/projects/usa-housing/runs">ML Aide Web UI</a>.
+Check the metrics and artifacts of this run.</p>
+<h2 id="lasso-regression">Lasso Regression</h2>
+<p>Until now, we created three runs (<code>data preparation</code>, <code>pipeline setup</code>, and <code>linear regression</code>). All of these runs belong to the experiment <code>linear-regression</code>.</p>
+<p>Now we train another model type - a lasso regression model. But we want to reuse the results of the data preparation and the pipeline setup. Therefore we open the <a href="http://localhost:8880/projects/usa-housing/experiments">Experiemnts View</a> and create a new experiment.
+Click on <code>Add Experiment</code> and add an experiment with the name <code>Lasso Regression</code>.</p>
+<p>Now we create a new run and set the new experiment that we created. Based on the input artifacts ML Aide takes care of everything else.</p>
+<div class="highlight"><pre><span></span><code><span class="n">dataset_artifact_ref</span> <span class="o">=</span> <span class="n">ArtifactRef</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;USA housing dataset&quot;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pipeline_artifact_ref</span> <span class="o">=</span> <span class="n">ArtifactRef</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;pipeline&quot;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">run_lasso</span> <span class="o">=</span> <span class="n">mlaide_client</span><span class="o">.</span><span class="n">start_new_run</span><span class="p">(</span><span class="n">experiment_key</span><span class="o">=</span><span class="s1">&#39;lasso-regression&#39;</span><span class="p">,</span>
+                                        <span class="n">run_name</span><span class="o">=</span><span class="s1">&#39;lasso regression&#39;</span><span class="p">,</span>
+                                        <span class="n">used_artifacts</span><span class="o">=</span><span class="p">[</span><span class="n">dataset_artifact_ref</span><span class="p">,</span> <span class="n">pipeline_artifact_ref</span><span class="p">])</span>
+</code></pre></div>
+<p>We fit our model as usual.</p>
+<div class="highlight"><pre><span></span><code><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">precompute</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">positive</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">selection</span> <span class="o">=</span> <span class="s1">&#39;random&#39;</span>
+<span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span>
+
+<span class="n">run_lasso</span><span class="o">.</span><span class="n">log_parameter</span><span class="p">(</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
+<span class="n">run_lasso</span><span class="o">.</span><span class="n">log_parameter</span><span class="p">(</span><span class="s1">&#39;precompute&#39;</span><span class="p">,</span> <span class="n">precompute</span><span class="p">)</span>
+<span class="n">run_lasso</span><span class="o">.</span><span class="n">log_parameter</span><span class="p">(</span><span class="s1">&#39;positive&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="p">)</span>
+<span class="n">run_lasso</span><span class="o">.</span><span class="n">log_parameter</span><span class="p">(</span><span class="s1">&#39;selection&#39;</span><span class="p">,</span> <span class="n">selection</span><span class="p">)</span>
+<span class="n">run_lasso</span><span class="o">.</span><span class="n">log_parameter</span><span class="p">(</span><span class="s1">&#39;random state&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> 
+              <span class="n">precompute</span><span class="o">=</span><span class="n">precompute</span><span class="p">,</span> 
+              <span class="n">positive</span><span class="o">=</span><span class="n">positive</span><span class="p">,</span> 
+              <span class="n">selection</span><span class="o">=</span><span class="n">selection</span><span class="p">,</span>
+              <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">run_lasso</span><span class="o">.</span><span class="n">log_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">&#39;lasso&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>And now we calculate some metrics for this model, too.</p>
+<div class="highlight"><pre><span></span><code><span class="n">test_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">train_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="n">mae</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">test_pred</span><span class="p">)</span>
+<span class="n">mse</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">test_pred</span><span class="p">)</span>
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">test_pred</span><span class="p">))</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">test_pred</span><span class="p">)</span>
+<span class="n">cross_validation</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">Lasso</span><span class="p">(),</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="n">run_lasso</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s1">&#39;mae&#39;</span><span class="p">,</span> <span class="n">mae</span><span class="p">)</span>
+<span class="n">run_lasso</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s1">&#39;mse&#39;</span><span class="p">,</span> <span class="n">mse</span><span class="p">)</span>
+<span class="n">run_lasso</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s1">&#39;rmse&#39;</span><span class="p">,</span> <span class="n">rmse</span><span class="p">)</span>
+<span class="n">run_lasso</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s1">&#39;r2&#39;</span><span class="p">,</span> <span class="n">r2</span><span class="p">)</span>
+<span class="n">run_lasso</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s1">&#39;cross validation&#39;</span><span class="p">,</span> <span class="n">cross_validation</span><span class="p">)</span>
+
+<span class="n">run_lasso</span><span class="o">.</span><span class="n">set_completed_status</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="summary">Summary</h2>
+<p>In this chapter we</p>
+<ul>
+<li>created a sklearn pipeline with a standard scaler</li>
+<li>trained two models. </li>
+</ul>
+<p>All these steps were tracked in ML Aide as separate runs. The runs included all parameters and metrics that we need for reproducibility and further investigation. 
+The pipeline and the models are stored as artifacts in ML Aide.</p>
+<p>In the next chapter, we will learn how to evaluate models with ML Aide.</p>
                 
               
               

@@ -297,8 +297,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorial/create-project/" class="md-nav__link">
-        Create Project
+      <a href="../../tutorial/create-connection/" class="md-nav__link">
+        Create Connection to App
       </a>
     </li>
   
@@ -464,6 +464,54 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    Features
+  </a>
+  
+    <nav class="md-nav" aria-label="Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-runs" class="md-nav__link">
+    Show Runs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-run" class="md-nav__link">
+    Create Run
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toggle-paramenters" class="md-nav__link">
+    Toggle Paramenters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compare-runs" class="md-nav__link">
+    Compare Runs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-runs" class="md-nav__link">
+    Export Runs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -491,6 +539,18 @@
     <li class="md-nav__item">
       <a href="../models/" class="md-nav__link">
         Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project-settings/" class="md-nav__link">
+        Project Settings
       </a>
     </li>
   
@@ -601,6 +661,54 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    Features
+  </a>
+  
+    <nav class="md-nav" aria-label="Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#show-runs" class="md-nav__link">
+    Show Runs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-run" class="md-nav__link">
+    Create Run
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toggle-paramenters" class="md-nav__link">
+    Toggle Paramenters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compare-runs" class="md-nav__link">
+    Compare Runs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-runs" class="md-nav__link">
+    Export Runs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -620,22 +728,73 @@
                 
                 <h1 id="runs">Runs</h1>
 <h2 id="overview">Overview</h2>
-<p>Runs belong to exactly one project and to none, one or many experiments. However, it is good practice to assign a run to at least one experiment. They may have input from previous runs and may generate outputs &ndash; named artifacts &ndash; such as models. Runs also contain parameters and metrics that are key value pairs to make them comparable.</p>
+<p>Runs belong to exactly one project and to none, one or many experiments. However, it is good practice to assign a run to at least one experiment. They may have input from previous runs and may generate outputs &ndash; named artifacts &ndash; such as models. Runs also contain parameters and metrics that are key-value pairs to make them comparable.</p>
 <details class="example" open="open"><summary>Example</summary><p><em>Project: House Price Prediction</em></p>
 <ul>
-<li><em>Experiment 1: TODO Raman: Find a good example</em><ul>
-<li><em>Run 1: TODO Raman: Find a good example</em></li>
-<li><em>Run 2: TODO Raman: Find a good example</em></li>
-<li><em>Run 3: TODO Raman: Find a good example</em></li>
+<li><em>Experiment 1: Linear Regression</em><ul>
+<li><em>Run 1: Data Preparation</em></li>
+<li><em>Run 2: Test Train Split</em></li>
+<li><em>Run 3: Linear Regression Training</em></li>
 </ul>
 </li>
-<li><em>Experiment 2: TODO Raman: Find a good example</em><ul>
-<li><em>Run 1: TODO Raman: Find a good example</em></li>
-<li><em>Run 4: TODO Raman: Find a good example</em></li>
-<li><em>Run 5: TODO Raman: Find a good example</em></li>
+<li><em>Experiment 2: Random Forest Regression</em><ul>
+<li><em>Run 1: Data Preparation</em></li>
+<li><em>Run 2: Test Train Split</em></li>
+<li><em>Run 4: Random Forest Regression Training</em></li>
 </ul>
 </li>
 </ul>
+</details>
+<h2 id="features">Features</h2>
+<h3 id="show-runs">Show Runs</h3>
+<details class="note" open="open"><summary>Instructions</summary><div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">GUI</label><div class="tabbed-content">
+<ol>
+<li>Select the relevant project by clicking it in the home view or via the <em>Projects</em> dropdown in the main navigation</li>
+<li>Click the <em>Runs</em> button in the side navigation</li>
+</ol>
+</div>
+</div>
+</details>
+<h3 id="create-run">Create Run</h3>
+<details class="note" open="open"><summary>Instructions</summary><div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Code</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">run</span> <span class="o">=</span> <span class="n">mlaide_client</span><span class="o">.</span><span class="n">start_new_run</span><span class="p">(</span><span class="n">experiment_key</span><span class="o">=</span><span class="s1">&#39;linear-regression&#39;</span><span class="p">,</span>
+                                  <span class="n">run_name</span><span class="o">=</span><span class="s1">&#39;linear regression&#39;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</details>
+<h3 id="toggle-paramenters">Toggle Paramenters</h3>
+<details class="note" open="open"><summary>Instructions</summary><div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">GUI</label><div class="tabbed-content">
+<ol>
+<li>Select the relevant project by clicking it in the home view or via the <em>Projects</em> dropdown in the main navigation</li>
+<li>Click the <em>Runs</em> button in the side navigation</li>
+<li>Click <em><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5z"/></svg></span> Show Parameters</em> button at the top of the runs table to show parameters for runs</li>
+<li>Click <em><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.83 9L15 12.16V12a3 3 0 0 0-3-3h-.17m-4.3.8l1.55 1.55c-.05.21-.08.42-.08.65a3 3 0 0 0 3 3c.22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53a5 5 0 0 1-5-5c0-.79.2-1.53.53-2.2M2 4.27l2.28 2.28.45.45C3.08 8.3 1.78 10 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.43.42L19.73 22 21 20.73 3.27 3M12 7a5 5 0 0 1 5 5c0 .64-.13 1.26-.36 1.82l2.93 2.93c1.5-1.25 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-4 .7l2.17 2.15C10.74 7.13 11.35 7 12 7z"/></svg></span> Hide Parameters</em> button at the top of the runs table to hide parameters for runs</li>
+</ol>
+</div>
+</div>
+</details>
+<h3 id="compare-runs">Compare Runs</h3>
+<details class="note" open="open"><summary>Instructions</summary><div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">GUI</label><div class="tabbed-content">
+<ol>
+<li>Select the relevant project by clicking it in the home view or via the <em>Projects</em> dropdown in the main navigation</li>
+<li>Click the <em>Runs</em> button in the side navigation</li>
+<li>Select the relevant runs by clicking the checkbox</li>
+<li>Click the <em><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3h-5v2h5v13l-5-6v9h5a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-9 15H5l5-6m0-9H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h5v2h2V1h-2v2z"/></svg></span> Compare</em> button at the top of the runs table</li>
+</ol>
+</div>
+</div>
+</details>
+<h3 id="export-runs">Export Runs</h3>
+<details class="note" open="open"><summary>Instructions</summary><div class="tabbed-set" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">GUI</label><div class="tabbed-content">
+<ol>
+<li>Select the relevant project by clicking it in the home view or via the <em>Projects</em> dropdown in the main navigation</li>
+<li>Click the <em>Runs</em> button in the side navigation</li>
+<li>Select the relevant runs by clicking the checkbox</li>
+<li>Click the <em><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 13l-5 5-5-5h3V9h4v4m5.35-2.97A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.03A6.004 6.004 0 0 0 0 14a6 6 0 0 0 6 6h13a5 5 0 0 0 5-5c0-2.64-2.05-4.78-4.65-4.97z"/></svg></span> Export</em> button at the top of the runs table</li>
+</ol>
+</div>
+</div>
 </details>
                 
               
