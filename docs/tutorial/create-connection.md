@@ -1,9 +1,10 @@
-# Create Connection
+# Create Connection to App
 
-First we have to create a new python file in our working directory. Create
-the file `app.py`.
+In the first step, we have to create a new python file in our working directory. For this, create the file `app.py`.
 
-First of all we need to import all libraries - including ML Aide.
+## Import required Libraries
+
+Then, we need to import all libraries - including ML Aide.
 
 ```python
 from mlaide import client
@@ -15,6 +16,8 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 ```
 
+## Setup Server URL and API Keys
+
 Now we are ready to create a connection using the API key.
 
 ```python
@@ -24,5 +27,12 @@ options = client.MvcOptions(
 )
 mlaide_client = client.MvcClient(project_key='usa-housing', options=options)
 ```
+
+## Summary
+
+In this chapter we have
+
+- imported all required libraries
+- setup the connection to our web application
 
 The next step is to load and prepare the dataset.

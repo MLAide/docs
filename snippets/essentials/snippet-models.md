@@ -1,4 +1,4 @@
-Models are a special type of artifact named _model_ and have a special status in ML Aide, since they are the heart of the application.
+Models are a special type of artifact named _model_ and have a special status in ML Aide since they are the heart of the application.
 
 ???+ example "Example"
 

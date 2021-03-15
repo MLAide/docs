@@ -1,32 +1,35 @@
 # Data Preparation
 
-In this chapter we will load and prepare the 
+In this chapter, we will load and prepare the 
 [USA Housing dataset](https://www.kaggle.com/vedavyasv/usa-housing). All steps that we execute
-should be stored in ML Aide.
+will be stored in ML Aide.
+
+## Import required Dataset
 
 First download the [dataset](https://raw.githubusercontent.com/MLAide/docs/master/docs/tutorial/housing.csv)
-and save it in a sub directory called `data`.
+and save it in a subdirectory called `data`.
 ```
 curl https://raw.githubusercontent.com/MLAide/docs/master/docs/tutorial/housing.csv --output ./data/housing.csv
 ```
 
-Before we read or process anything we should start tracking all relevant information in ML Aide. In ML Aide a run
-is the key concept to track parameters, metrics, artifacts and models. All runs belong to one or more experiments.
+## Create Experiment
+Before we read or process anything we should start tracking all relevant information in ML Aide. In ML Aide a [run](../essentials/runs.md)
+is the key concept to track parameters, metrics, artifacts and models. All runs belong to one or more [experiments](../essentials/experiments.md).
 
-Currently experiments has be create from the [Experiments View](http://localhost:8880/projects/usa-housing/experiments).
-Click on `Add Experiment` and enter `Linear Regression` as experiment name. Leave the tags empty and the remain the 
-status unchanged. Close the dialog clicking `Create`. Now you can see a experiment in the UI.
+Experiments can be created from the [Experiments View](http://localhost:8880/projects/usa-housing/experiments).
+Click on `Add Experiment` and enter `Linear Regression` as the experiment name. Leave the tags empty and remain the status unchanged. Confirm the dialog by clicking `Create`. Now you can see the experiment in the UI.
 
-Next we will switch back to our Python code and create a run for the data preparation.
+## Create Run
+Next, we switch back to our Python code and create a run for the data preparation.
 
 ```python
 run_data_preparation = mlaide_client.start_new_run(experiment_key='linear-regression', run_name='data preparation')
 ```
 
-Now we can read and process this file. Also we are able to register the dataset as an artifact in ML Aide.
-This brings the advantage that we are able to reproduce following steps - even if the dataset is lost, deleted or modified.
+Now we can read and process this file. Also, we are able to register the dataset as an [artifact](../essentials/artifacts.md) in ML Aide.
+This gives us the ability to reproduce the following steps - even if the dataset is lost, deleted, or modified.
 The artifact can be used in other runs as an input. This helps to track down the lineage of a machine learning model to its
-source. At the end don't forget to mark the run as completed.
+root. In the end, don't forget to mark the run as completed.
 
 ```python
 housing_data = pd.read_csv('data/housing.csv')
@@ -39,5 +42,10 @@ run_data_preparation.set_completed_status()
 
 Check the [Web UI](http://localhost:8880/projects/usa-housing/runs) to see the created run and the artifact.
 
-In this chapter we created our first run in ML Aide. We attached the dataset as an artifact to the run. The
-next step is to create a model based on this dataset.
+## Summary
+In this chapter we 
+
+- created our first run in ML Aide
+- attached the dataset as an artifact to the run
+
+The next step is to create a model based on this dataset.

@@ -1,13 +1,13 @@
 # Model Training
 
-In the last chapter we loaded the USA Housing dataset. Now we will train two different
-models on this dataset. All details of the training should be tracked in ML Aide.
+In the last chapter, we have loaded the USA Housing dataset. Now we will train two different
+models on this dataset. All details of the training will be tracked in ML Aide.
 
 ## Train Test Split
-But before we train our model we have to split the dataset for training and testing.
-Usually a split will be done randomly. ML Aide helps you to keep things reproducible.
+Before we train our model, we have to split the dataset for training and testing.
+Usually, the split will be done randomly. ML Aide helps you to keep things reproducible.
 
-We will start a new run to track the split. Also we will set the dataset as an input artifact.
+We start a new run to track the split. Also, we set the dataset as an input artifact.
 
 ```python
 artifact_ref = ArtifactRef(name="USA housing dataset", version=1)
@@ -16,7 +16,7 @@ run_pipeline_setup = mlaide_client.start_new_run(experiment_key='linear-regressi
                                                  used_artifacts=[artifact_ref])
 ```
 
-Now we can split our dataset and link all information regarding to the split to our run.
+Now we split our dataset and link all information related to the split to our run.
 In this case we want to track all arguments (`test_size` and `random_state`) of the 
 `train_test_split()` function.
 
@@ -34,10 +34,9 @@ run_pipeline_setup.log_parameter('test_size', test_size)
 run_pipeline_setup.log_parameter('random_state', random_state)
 ```
 
-If you have a close look on the data you can see, that all X values must be scaled before we can use them.
-We will use the `StandardScaler` of sklearn. The scaler that will be fitted here, must also be used later
-for predicting new values. ML Aide makes this easy by just storing the scaler (or the whole pipeline) in
-ML Aide as an artifact. The artifact can be loaded later in a seperate process for predicting.
+If you have a close look at the data, you can see that all X values must be scaled, before we can use them.
+We use the `StandardScaler` of sklearn. The scaler that will be fitted here, must also be used later for predicting new values. ML Aide makes this easy by just storing the scaler (or the whole pipeline) in
+ML Aide as an artifact. The artifact can be loaded later in a separate process for predicting.
 
 ```python
 pipeline = Pipeline([
@@ -52,8 +51,7 @@ run_pipeline_setup.set_completed_status()
 ```
 
 ## Linear Regression
-After the train-test-split we can fit a linear regression model. We will
-start a new run and link dataset and the pipeline as input artifacts.
+After the train-test-split, we can fit a linear regression model. We start a new run and link dataset and the pipeline as input artifacts.
 
 ```python
 dataset_artifact_ref = ArtifactRef(name="USA housing dataset", version=1)
@@ -63,7 +61,7 @@ run_linear_regression = mlaide_client.start_new_run(experiment_key='linear-regre
                                                     used_artifacts=[dataset_artifact_ref, pipeline_artifact_ref])
 ```
 
-Now just fit your model as usual. After that you can log the model via `log_model()` in ML Aide.
+Now just fit your model as usual. After that, you can log the model with `log_model()` in ML Aide.
 
 ```python
 lin_reg = LinearRegression(normalize=True)
@@ -72,7 +70,7 @@ lin_reg.fit(X_train,y_train)
 run_linear_regression.log_model(lin_reg, 'linear regression')
 ```
 
-Last but non least we will calculate some model metrics. The metrics should also be tracked in ML Aide.
+Finally, we calculate some model metrics. The metrics will also be tracked in ML Aide.
 
 ```python
 test_pred = lin_reg.predict(X_test)
@@ -93,21 +91,17 @@ run_linear_regression.log_metric('cross validation', cross_validation)
 run_linear_regression.set_completed_status()
 ```
 
-Now you should see the run `linear regression` in the [ML Aide Web UI](http://localhost:8880/projects/usa-housing/runs).
+Now you see the run `linear regression` in the [ML Aide Web UI](http://localhost:8880/projects/usa-housing/runs).
 Check the metrics and artifacts of this run.
 
 ## Lasso Regression
 
-Until now we created three runs (`data preparation`, `pipeline setup` and `linear regression`). All of these
-runs belong to the experiment `linear-regression`.
+Until now, we created three runs (`data preparation`, `pipeline setup`, and `linear regression`). All of these runs belong to the experiment `linear-regression`.
 
-Now we would like to train another model type - a lasso regression model. But we want to reuse the results of 
-data preparation and the pipeline setup. Therefore we open the 
-[Experiemnts View](http://localhost:8880/projects/usa-housing/experiments) and create a new experiment.
-Click on `Add Experiment` and add a experiment with the name `Lasso Regression`. 
+Now we train another model type - a lasso regression model. But we want to reuse the results of the data preparation and the pipeline setup. Therefore we open the [Experiemnts View](http://localhost:8880/projects/usa-housing/experiments) and create a new experiment.
+Click on `Add Experiment` and add an experiment with the name `Lasso Regression`.
 
-Now we can create a new run and set the new experiment that we created. Based on the input artifacts ML Aide will 
-take care about everything else.
+Now we create a new run and set the new experiment that we created. Based on the input artifacts ML Aide takes care of everything else.
 
 ```python
 dataset_artifact_ref = ArtifactRef(name="USA housing dataset", version=1)
@@ -163,13 +157,14 @@ run_lasso.log_metric('cross validation', cross_validation)
 run_lasso.set_completed_status()
 ```
 
+## Summary
 
+In this chapter we
 
-## Conclusion
+- created a sklearn pipeline with a standard scaler
+- trained two models. 
 
-In this chapter we created a sklearn pipeline with a standard scaler and trained two models. All
-these steps are tracked in ML Aide as seperate runs. The runs include all parameters and metrics 
-that we need for reproducibility and further investigation. The pipeline and the models are stored 
-as artifacts in ML Aide.
+All these steps were tracked in ML Aide as separate runs. The runs included all parameters and metrics that we need for reproducibility and further investigation. 
+The pipeline and the models are stored as artifacts in ML Aide.
 
-In the next chapter we will learn how to evaluate models with ML Aide.
+In the next chapter, we will learn how to evaluate models with ML Aide.
