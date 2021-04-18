@@ -13,18 +13,12 @@ curl https://raw.githubusercontent.com/MLAide/docs/master/docs/tutorial/housing.
 Before we read or process anything we should start tracking all relevant information in ML Aide. In ML Aide a run
 is the key concept to track parameters, metrics, artifacts and models. All runs belong to one or more experiments.
 
-Currently experiments has be create from the [Experiments View](http://localhost:8880/projects/usa-housing/experiments).
-Click on `Add Experiment` and enter `Linear Regression` as experiment name. Leave the tags empty and the remain the 
-status unchanged. Close the dialog clicking `Create`. Now you can see a experiment in the UI.
-
-Next we will switch back to our Python code and create a run for the data preparation.
-
 ```python
 run_data_preparation = mlaide_client.start_new_run(experiment_key='linear-regression', run_name='data preparation')
 ```
 
-Now we can read and process this file. Also we are able to register the dataset as an artifact in ML Aide.
-This brings the advantage that we are able to reproduce following steps - even if the dataset is lost, deleted or modified.
+Now we can read and process the dataset. Also we are able to register the dataset as an artifact in ML Aide.
+This brings the advantage that we are able to reproduce the following steps - even if the dataset is lost, deleted or modified.
 The artifact can be used in other runs as an input. This helps to track down the lineage of a machine learning model to its
 source. At the end don't forget to mark the run as completed.
 

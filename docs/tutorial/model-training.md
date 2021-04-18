@@ -101,13 +101,10 @@ Check the metrics and artifacts of this run.
 Until now we created three runs (`data preparation`, `pipeline setup` and `linear regression`). All of these
 runs belong to the experiment `linear-regression`.
 
-Now we would like to train another model type - a lasso regression model. But we want to reuse the results of 
-data preparation and the pipeline setup. Therefore we open the 
-[Experiemnts View](http://localhost:8880/projects/usa-housing/experiments) and create a new experiment.
-Click on `Add Experiment` and add a experiment with the name `Lasso Regression`. 
-
-Now we can create a new run and set the new experiment that we created. Based on the input artifacts ML Aide will 
-take care about everything else.
+Now we would like to train another model type - a lasso regression model. In our case we will define this as 
+another experiment. But we also want to reuse the results of data preparation and the pipeline setup. With
+ML Aide this can be achieved simply by using a new `experiment_key` and provide the artifacts of the previous
+runs via `used_artifacts`.
 
 ```python
 dataset_artifact_ref = ArtifactRef(name="USA housing dataset", version=1)
