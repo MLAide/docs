@@ -26,7 +26,7 @@ TODO: Check create roles & rights overview as table
             - _Role_
         5. Confirm by clicking the _Create_ button
 
-        **_User has to log in at least once, before he/she can be added as a project member_**
+        **_User has to log in at least once before he/she can be added as a project member_**
 
 ### Edit Project Members
 

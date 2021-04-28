@@ -11,4 +11,7 @@ from mlaide import MLAideClient, ConnectionOptions
 
 Replace `api_key` with your personal API key that you created using the ML Aide Web UI.
 
-The next step is to load and prepare the dataset.
+## Summary
+In this chapter we have created a snippet to connect our python client to the ML Aide webserver.
+
+The next step is to load and prepare the dataset. In this step we will use the snippet.

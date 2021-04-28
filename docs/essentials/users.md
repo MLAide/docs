@@ -8,14 +8,14 @@
 
 ???+ note "Instructions"
     === "GUI"
-       1. Click the _User name_ button in the upper right corner to open the user drop down menu
+       1. Click the _User name_ button in the upper right corner to open the user drop-down menu
        2. Click the _Settings_ button
 
 ### Update User Profile
 
 ???+ note "Instructions"
     === "GUI"
-        1. Click the _User name_ button in the upper right corner to open the user drop down menu
+        1. Click the _User name_ button in the upper right corner to open the user drop-down menu
         2. Click the _Settings_ button
         3. Click the _Profile_ button in the side navigation
         4. Change
@@ -28,7 +28,7 @@
 
 ???+ note "Instructions"
     === "GUI"
-        1. Click the _User name_ button in the upper right corner to open the user drop down menu
+        1. Click the _User name_ button in the upper right corner to open the user drop-down menu
         2. Click the _Settings_ button
         3. Click the _API Keys_ button in the side navigation
         4. Click the _Add API Key_ button
@@ -47,7 +47,7 @@
 
 ???+ note "Instructions"
     === "GUI"
-        1. Click the _User name_ button in the upper right corner to open the user drop down menu
+        1. Click the _User name_ button in the upper right corner to open the user drop-down menu
         2. Click the _Settings_ button
         3. Click the _API Keys_ button in the side navigation
         4. Click the _Delete API Key_ button (:material-delete:) for the relevant API key
