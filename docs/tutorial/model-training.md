@@ -183,12 +183,6 @@ run_lasso.set_completed_status()
 Start your python script using your shell with `python training.py`. After the script completed check the 
 [Web UI](http://localhost:8880/projects/usa-housing) to see the created runs and the artifact.
 
-## Conclusion
-
-
-
-## Next Step
-In the next chapter we will learn how to evaluate models with ML Aide.
 ## Summary
 
 In this chapter we
