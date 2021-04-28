@@ -339,6 +339,34 @@
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
+        <li class="md-nav__item">
+  <a href="#download-required-dataset" class="md-nav__link">
+    Download required Dataset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-connection-to-ml-aide-webserver" class="md-nav__link">
+    Create connection to ML Aide webserver
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-run" class="md-nav__link">
+    Create Run
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -598,6 +626,34 @@
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
+        <li class="md-nav__item">
+  <a href="#download-required-dataset" class="md-nav__link">
+    Download required Dataset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-connection-to-ml-aide-webserver" class="md-nav__link">
+    Create connection to ML Aide webserver
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-run" class="md-nav__link">
+    Create Run
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -616,31 +672,82 @@
                 
                 
                 <h1 id="data-preparation">Data Preparation</h1>
-<p>In this chapter we will load and prepare the 
+<p>In this chapter, we will load and prepare the 
 <a href="https://www.kaggle.com/vedavyasv/usa-housing">USA Housing dataset</a>. All steps that we execute
-should be stored in ML Aide.</p>
+will be stored in ML Aide.</p>
+<h2 id="download-required-dataset">Download required Dataset</h2>
 <p>First download the <a href="https://raw.githubusercontent.com/MLAide/docs/master/docs/tutorial/housing.csv">dataset</a>
-and save it in a sub directory called <code>data</code>.
-<div class="highlight"><pre><span></span><code>curl https://raw.githubusercontent.com/MLAide/docs/master/docs/tutorial/housing.csv --output ./data/housing.csv
+and save it in a subdirectory called <code>data</code>.
+<div class="highlight"><pre><span></span><code>mkdir data
+curl https://raw.githubusercontent.com/MLAide/docs/master/docs/tutorial/housing.csv --output ./data/housing.csv
 </code></pre></div></p>
-<p>Before we read or process anything we should start tracking all relevant information in ML Aide. In ML Aide a run
-is the key concept to track parameters, metrics, artifacts and models. All runs belong to one or more experiments.</p>
+<h2 id="create-connection-to-ml-aide-webserver">Create connection to ML Aide webserver</h2>
+<p>Our data preparation will be implemented in <code>data_preparation.py</code>. Therefore create a new file with this name.
+At the top we need some imports and the connection as described in the <a href="../create-connection/">previous step</a>:
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">mlaide</span> <span class="kn">import</span> <span class="n">MLAideClient</span><span class="p">,</span> <span class="n">ConnectionOptions</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">options</span> <span class="o">=</span> <span class="n">ConnectionOptions</span><span class="p">(</span>
+    <span class="n">server_url</span><span class="o">=</span><span class="s1">&#39;http://localhost:8881/api/v1&#39;</span><span class="p">,</span> <span class="c1"># the ML Aide demo server runs on port 8881 per default</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s1">&#39;&lt;your api key&gt;&#39;</span>
+<span class="p">)</span>
+<span class="n">mlaide_client</span> <span class="o">=</span> <span class="n">MLAideClient</span><span class="p">(</span><span class="n">project_key</span><span class="o">=</span><span class="s1">&#39;usa-housing&#39;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
+</code></pre></div></p>
+<h2 id="create-run">Create Run</h2>
+<p>Before we read or process anything we should start tracking all relevant information in ML Aide. 
+In ML Aide a <a href="../../essentials/runs/">run</a> is the key concept to track parameters, metrics, artifacts 
+and models. All runs belong to one or more <a href="../../essentials/experiments/">experiments</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">run_data_preparation</span> <span class="o">=</span> <span class="n">mlaide_client</span><span class="o">.</span><span class="n">start_new_run</span><span class="p">(</span><span class="n">experiment_key</span><span class="o">=</span><span class="s1">&#39;linear-regression&#39;</span><span class="p">,</span> <span class="n">run_name</span><span class="o">=</span><span class="s1">&#39;data preparation&#39;</span><span class="p">)</span>
 </code></pre></div>
-<p>Now we can read and process the dataset. Also we are able to register the dataset as an artifact in ML Aide.
-This brings the advantage that we are able to reproduce the following steps - even if the dataset is lost, deleted or modified.
+<p>Now we can read and process this dataset. Also, we are able to register the dataset as an <a href="../../essentials/artifacts/">artifact</a> 
+in ML Aide. This gives us the ability to reproduce the following steps - even if the dataset is lost, deleted, or modified.
 The artifact can be used in other runs as an input. This helps to track down the lineage of a machine learning model to its
-source. At the end don't forget to mark the run as completed.</p>
+root. In the end, don't forget to mark the run as completed.</p>
 <div class="highlight"><pre><span></span><code><span class="n">housing_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/housing.csv&#39;</span><span class="p">)</span>
 
 <span class="c1"># add dataset as artifact</span>
 <span class="n">artifact</span> <span class="o">=</span> <span class="n">run_data_preparation</span><span class="o">.</span><span class="n">create_artifact</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;USA housing dataset&quot;</span><span class="p">,</span> <span class="n">artifact_type</span><span class="o">=</span><span class="s2">&quot;dataset&quot;</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{})</span>
 <span class="n">run_data_preparation</span><span class="o">.</span><span class="n">add_artifact_file</span><span class="p">(</span><span class="n">artifact</span><span class="p">,</span> <span class="s1">&#39;data/housing.csv&#39;</span><span class="p">)</span>
+
 <span class="n">run_data_preparation</span><span class="o">.</span><span class="n">set_completed_status</span><span class="p">()</span>
 </code></pre></div>
-<p>Check the <a href="http://localhost:8880/projects/usa-housing/runs">Web UI</a> to see the created run and the artifact.</p>
-<p>In this chapter we created our first run in ML Aide. We attached the dataset as an artifact to the run. The
-next step is to create a model based on this dataset.</p>
+<p>Start your python script using your shell with <code>python data_preparation.py</code>. After the script completed check the 
+<a href="http://localhost:8880/projects/usa-housing/runs">Web UI</a> to see the created run and the artifact.</p>
+<h2 id="summary">Summary</h2>
+<p>In this chapter we </p>
+<ul>
+<li>created our first run in ML Aide</li>
+<li>attached the dataset as an artifact to the run</li>
+</ul>
+<p>Your code should look like the following snippet shows.</p>
+<details class="note"><summary>Code</summary><div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">data_preparation.py</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">mlaide</span> <span class="kn">import</span> <span class="n">MLAideClient</span><span class="p">,</span> <span class="n">ConnectionOptions</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">options</span> <span class="o">=</span> <span class="n">ConnectionOptions</span><span class="p">(</span>
+    <span class="n">server_url</span><span class="o">=</span><span class="s1">&#39;http://localhost:8881/api/v1&#39;</span><span class="p">,</span> <span class="c1"># the ML Aide demo server runs on port 8881 per default</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s1">&#39;&lt;your api key&gt;&#39;</span>
+<span class="p">)</span>
+<span class="n">mlaide_client</span> <span class="o">=</span> <span class="n">MLAideClient</span><span class="p">(</span><span class="n">project_key</span><span class="o">=</span><span class="s1">&#39;usa-housing&#39;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
+
+<span class="n">run_data_preparation</span> <span class="o">=</span> <span class="n">mlaide_client</span><span class="o">.</span><span class="n">start_new_run</span><span class="p">(</span><span class="n">experiment_key</span><span class="o">=</span><span class="s1">&#39;linear-regression&#39;</span><span class="p">,</span> <span class="n">run_name</span><span class="o">=</span><span class="s1">&#39;data preparation&#39;</span><span class="p">)</span>
+
+<span class="n">housing_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/housing.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># add dataset as artifact</span>
+<span class="n">artifact</span> <span class="o">=</span> <span class="n">run_data_preparation</span><span class="o">.</span><span class="n">create_artifact</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;USA housing dataset&quot;</span><span class="p">,</span> <span class="n">artifact_type</span><span class="o">=</span><span class="s2">&quot;dataset&quot;</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="p">{})</span>
+<span class="n">run_data_preparation</span><span class="o">.</span><span class="n">add_artifact_file</span><span class="p">(</span><span class="n">artifact</span><span class="p">,</span> <span class="s1">&#39;data/housing.csv&#39;</span><span class="p">)</span>
+
+<span class="n">run_data_preparation</span><span class="o">.</span><span class="n">set_completed_status</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">data/housing.csv</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>a lot of housing data
+</code></pre></div>
+</div>
+</div>
+</details>
+<p>The next step is to create a model based on this dataset.</p>
                 
               
               

@@ -327,6 +327,13 @@
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -598,6 +605,13 @@
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -616,24 +630,21 @@
                 
                 
                 <h1 id="create-connection">Create Connection</h1>
-<p>First we have to create a new python file in our working directory. Create
-the file <code>app.py</code>.</p>
-<p>First of all we need to import all libraries - including ML Aide.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">mlaide</span> <span class="kn">import</span> <span class="n">MLAideClient</span><span class="p">,</span> <span class="n">ConnectionOptions</span><span class="p">,</span> <span class="n">ArtifactRef</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<p>To create a connection to the ML Aide webserver with Python
+clients you have to use <code>mlaide.MLAideClient</code>. An object
+of this class is the main entry point for all kinds of operations.</p>
+<p><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">mlaide</span> <span class="kn">import</span> <span class="n">MLAideClient</span><span class="p">,</span> <span class="n">ConnectionOptions</span>
 </code></pre></div>
-<p>Now we are ready to create a connection using the API key.</p>
 <div class="highlight"><pre><span></span><code><span class="n">options</span> <span class="o">=</span> <span class="n">ConnectionOptions</span><span class="p">(</span>
-    <span class="n">mvc_server_url</span><span class="o">=</span><span class="s1">&#39;http://localhost:8881/api/v1&#39;</span><span class="p">,</span> <span class="c1"># the ML Aide demo server runs on port 8881 per default</span>
+    <span class="n">server_url</span><span class="o">=</span><span class="s1">&#39;http://localhost:8881/api/v1&#39;</span><span class="p">,</span> <span class="c1"># the ML Aide demo server runs on port 8881 per default</span>
     <span class="n">api_key</span><span class="o">=</span><span class="s1">&#39;&lt;your api key&gt;&#39;</span>
 <span class="p">)</span>
 <span class="n">mlaide_client</span> <span class="o">=</span> <span class="n">MLAideClient</span><span class="p">(</span><span class="n">project_key</span><span class="o">=</span><span class="s1">&#39;usa-housing&#39;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
-</code></pre></div>
-<p>The next step is to load and prepare the dataset.</p>
+</code></pre></div></p>
+<p>Replace <code>api_key</code> with your personal API key that you created using the ML Aide Web UI.</p>
+<h2 id="summary">Summary</h2>
+<p>In this chapter we have created a snippet to connect our python client to the ML Aide webserver.</p>
+<p>The next step is to load and prepare the dataset. In this step we will use the snippet.</p>
                 
               
               
