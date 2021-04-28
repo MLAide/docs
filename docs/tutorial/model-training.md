@@ -3,6 +3,7 @@
 In the last chapter we loaded the USA Housing dataset. Now we will train two different
 models on this dataset. All details of the training will be tracked in ML Aide.
 
+## Create connection to ML Aide webserver
 Our code will be written in a new file named `training.py`. In the beginning
 we will create a connection to the ML Aide webserver.
 ```python
