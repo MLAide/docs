@@ -1,0 +1,1962 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.2">
+    
+    
+      
+        <title>Python SDK - ML Aide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f955dcd.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../css/material-enhancements.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="mlaide" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python-sdk" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="ML Aide" class="md-header__button md-logo" aria-label="ML Aide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ML Aide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Python SDK
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/MLAide/docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ML Aide" class="md-nav__button md-logo" aria-label="ML Aide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    ML Aide
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/MLAide/docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Getting Started
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../start/quickstart/" class="md-nav__link">
+        Quickstart
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Tutorial
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tutorial" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorial
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/create-connection/" class="md-nav__link">
+        Create Connection
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/data-preparation/" class="md-nav__link">
+        Data Preparation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/model-training/" class="md-nav__link">
+        Model Training
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/model-evaluation/" class="md-nav__link">
+        Model Evaluation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/productionize-model/" class="md-nav__link">
+        Productionize Model
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Essentials
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Essentials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Essentials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/projects/" class="md-nav__link">
+        Projects
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/experiments/" class="md-nav__link">
+        Experiments
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/runs/" class="md-nav__link">
+        Runs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/artifacts/" class="md-nav__link">
+        Artifacts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/models/" class="md-nav__link">
+        Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/project-settings/" class="md-nav__link">
+        Project Settings
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/users/" class="md-nav__link">
+        Users
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      <label class="md-nav__link" for="__nav_5">
+        API Reference
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="API Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          API Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Python SDK
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Python SDK
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mlaideclient" class="md-nav__link">
+    MLAideClient
+  </a>
+  
+    <nav class="md-nav" aria-label="MLAideClient">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.client.MLAideClient" class="md-nav__link">
+    mlaide.client.MLAideClient
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.client.MLAideClient.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.client.MLAideClient.get_artifact" class="md-nav__link">
+    get_artifact()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.client.MLAideClient.load_model" class="md-nav__link">
+    load_model()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.client.MLAideClient.start_new_run" class="md-nav__link">
+    start_new_run()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#active-run" class="md-nav__link">
+    Active Run
+  </a>
+  
+    <nav class="md-nav" aria-label="Active Run">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.active_run.ActiveRun" class="md-nav__link">
+    mlaide.active_run.ActiveRun
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.active_run.ActiveRun.add_artifact_file" class="md-nav__link">
+    add_artifact_file()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.active_run.ActiveRun.create_artifact" class="md-nav__link">
+    create_artifact()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.active_run.ActiveRun.log_metric" class="md-nav__link">
+    log_metric()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.active_run.ActiveRun.log_model" class="md-nav__link">
+    log_model()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.active_run.ActiveRun.log_parameter" class="md-nav__link">
+    log_parameter()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.active_run.ActiveRun.set_completed_status" class="md-nav__link">
+    set_completed_status()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.active_run.ActiveRun.set_failed_status" class="md-nav__link">
+    set_failed_status()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#active-artifact" class="md-nav__link">
+    Active Artifact
+  </a>
+  
+    <nav class="md-nav" aria-label="Active Artifact">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.active_artifact.ActiveArtifact" class="md-nav__link">
+    mlaide.active_artifact.ActiveArtifact
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.active_artifact.ActiveArtifact.download" class="md-nav__link">
+    download()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.active_artifact.ActiveArtifact.load" class="md-nav__link">
+    load()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest-api/" class="md-nav__link">
+        REST API
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mlaideclient" class="md-nav__link">
+    MLAideClient
+  </a>
+  
+    <nav class="md-nav" aria-label="MLAideClient">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.client.MLAideClient" class="md-nav__link">
+    mlaide.client.MLAideClient
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.client.MLAideClient.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.client.MLAideClient.get_artifact" class="md-nav__link">
+    get_artifact()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.client.MLAideClient.load_model" class="md-nav__link">
+    load_model()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.client.MLAideClient.start_new_run" class="md-nav__link">
+    start_new_run()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#active-run" class="md-nav__link">
+    Active Run
+  </a>
+  
+    <nav class="md-nav" aria-label="Active Run">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.active_run.ActiveRun" class="md-nav__link">
+    mlaide.active_run.ActiveRun
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.active_run.ActiveRun.add_artifact_file" class="md-nav__link">
+    add_artifact_file()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.active_run.ActiveRun.create_artifact" class="md-nav__link">
+    create_artifact()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.active_run.ActiveRun.log_metric" class="md-nav__link">
+    log_metric()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.active_run.ActiveRun.log_model" class="md-nav__link">
+    log_model()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.active_run.ActiveRun.log_parameter" class="md-nav__link">
+    log_parameter()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.active_run.ActiveRun.set_completed_status" class="md-nav__link">
+    set_completed_status()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.active_run.ActiveRun.set_failed_status" class="md-nav__link">
+    set_failed_status()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#active-artifact" class="md-nav__link">
+    Active Artifact
+  </a>
+  
+    <nav class="md-nav" aria-label="Active Artifact">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.active_artifact.ActiveArtifact" class="md-nav__link">
+    mlaide.active_artifact.ActiveArtifact
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.active_artifact.ActiveArtifact.download" class="md-nav__link">
+    download()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlaide.active_artifact.ActiveArtifact.load" class="md-nav__link">
+    load()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/MLAide/docs/edit/master/docs/api-reference/python-sdk.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="python-sdk">Python SDK</h1>
+<h2 id="mlaideclient">MLAideClient</h2>
+
+
+  <div class="doc doc-object doc-class">
+
+<a id="mlaide.client.MLAideClient"></a>
+    <div class="doc doc-contents first">
+
+      <p>This is the main entry point to use this library. Creates a connection to the ML Aide server and provides
+read and write access to all resources.</p>
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="mlaide.client.MLAideClient.__init__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">project_key</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Creates a new instance of this class.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>project_key</code></td>
+        <td><code>str</code></td>
+        <td><p>The key of the project, that should be accessed. All operations will be made on this project.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>options</code></td>
+        <td><code>ConnectionOptions</code></td>
+        <td><p>Optional options that will be used to establish a connection.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>mlaide/client.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">project_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">options</span><span class="p">:</span> <span class="n">ConnectionOptions</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Creates a new instance of this class.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        project_key: The key of the project, that should be accessed. All operations will be made on this project.</span>
+<span class="sd">        options: Optional options that will be used to establish a connection.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">project_key</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;project key must be not None&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">__project_key</span> <span class="o">=</span> <span class="n">project_key</span>
+
+    <span class="k">if</span> <span class="n">options</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__options</span> <span class="o">=</span> <span class="n">MLAideClient</span><span class="o">.</span><span class="n">__get_default_options</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__options</span> <span class="o">=</span> <span class="n">MLAideClient</span><span class="o">.</span><span class="n">__merge_options</span><span class="p">(</span><span class="n">MLAideClient</span><span class="o">.</span><span class="n">__get_default_options</span><span class="p">(),</span> <span class="n">options</span><span class="p">)</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">__api_client</span> <span class="o">=</span> <span class="n">AuthenticatedClient</span><span class="p">(</span><span class="n">base_url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__options</span><span class="o">.</span><span class="n">server_url</span><span class="p">,</span>
+                                            <span class="n">api_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__options</span><span class="o">.</span><span class="n">api_key</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="mlaide.client.MLAideClient.get_artifact" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_artifact</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">version</span><span class="p">)</span></code>
+
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Gets an existing artifact. The artifact is specified by its name and version. If no version
+is specified, the latest available version of the artifact will be used.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>name</code></td>
+        <td><code>str</code></td>
+        <td><p>The name of the artifact.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>version</code></td>
+        <td><code>Optional[int]</code></td>
+        <td><p>The (optional) version of the artifact. If no version is specified, the latest available version</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>ActiveArtifact</code></td>
+      <td><p>This object encapsulates an artifact and provides functions to interact with the artifact.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>mlaide/client.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_artifact</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">ActiveArtifact</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Gets an existing artifact. The artifact is specified by its name and version. If no version</span>
+<span class="sd">    is specified, the latest available version of the artifact will be used.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        name: The name of the artifact.</span>
+<span class="sd">        version: The (optional) version of the artifact. If no version is specified, the latest available version</span>
+<span class="sd">        will be loaded.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">         This object encapsulates an artifact and provides functions to interact with the artifact.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">ActiveArtifact</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__api_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__project_key</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">version</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="mlaide.client.MLAideClient.load_model" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">load_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stage</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Loads and restores a model. The model is specified by its name and version. If no version
+is specified, the latest available version of the model will be used.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>name</code></td>
+        <td><code>str</code></td>
+        <td><p>The name of the model.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>version</code></td>
+        <td><code>Optional[int]</code></td>
+        <td><p>The (optional) version of the model. If no version is specified, the latest available version</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>stage</code></td>
+        <td><code>Optional[ModelStage]</code></td>
+        <td><p>This argument can only be used when version is None. In this case the latest model can be filtered</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>any</code></td>
+      <td><p>The model. E.g. in the case of a scikit-learn model the return value will be a deserialized model that
+can be used for predictions using <code>.predict(...)</code>.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>mlaide/client.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+               <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+               <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+               <span class="n">stage</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ModelStage</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">any</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Loads and restores a model. The model is specified by its name and version. If no version</span>
+<span class="sd">    is specified, the latest available version of the model will be used.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        name: The name of the model.</span>
+<span class="sd">        version: The (optional) version of the model. If no version is specified, the latest available version</span>
+<span class="sd">        will be loaded.</span>
+<span class="sd">        stage: This argument can only be used when version is None. In this case the latest model can be filtered</span>
+<span class="sd">        by its stage. In reverse this means that all model versions will be ignored when they have not the specified</span>
+<span class="sd">        stage.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">         The model. E.g. in the case of a scikit-learn model the return value will be a deserialized model that</span>
+<span class="sd">         can be used for predictions using `.predict(...)`.</span>
+<span class="sd">     &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">version</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">stage</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Only one argument of version and stage can be not None&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ActiveArtifact</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__api_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__project_key</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">version</span><span class="p">,</span> <span class="n">stage</span><span class="p">)</span><span class="o">.</span><span class="n">load_model</span><span class="p">()</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="mlaide.client.MLAideClient.start_new_run" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">start_new_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">experiment_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">run_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">used_artifacts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">auto_create_experiment</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Creates and starts a new run, that will be assigned to the specified experiment. The run object can be used
+to log all necessary information.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>experiment_key</code></td>
+        <td><code>str</code></td>
+        <td><p>The key of the experiment, that the new run should be assigned to. If <code>None</code> a new, random</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>run_name</code></td>
+        <td><code>str</code></td>
+        <td><p>The name of the run. The name helps to identify the run for humans. If <code>None</code> a random name will</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>used_artifacts</code></td>
+        <td><code>List[ArtifactRef]</code></td>
+        <td><p>An optional list of <code>ArtifactRef</code> that references artifacts, that are used as input for</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>auto_create_experiment</code></td>
+        <td><code>bool</code></td>
+        <td><p>Specifies whether the experiment (see <code>experiment_key</code>) should be created if it</p></td>
+        <td><code>True</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>ActiveRun</code></td>
+      <td><p>This object encapsulates the newly created run and provides functions to log all information             that belongs to the run.</p></td>
+    </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>mlaide/client.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">start_new_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                  <span class="n">experiment_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="n">run_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="n">used_artifacts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ArtifactRef</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="n">auto_create_experiment</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ActiveRun</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Creates and starts a new run, that will be assigned to the specified experiment. The run object can be used</span>
+<span class="sd">    to log all necessary information.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        experiment_key: The key of the experiment, that the new run should be assigned to. If `None` a new, random</span>
+<span class="sd">        experiment will be created.</span>
+<span class="sd">        run_name: The name of the run. The name helps to identify the run for humans. If `None` a random name will</span>
+<span class="sd">        be used.</span>
+<span class="sd">        used_artifacts: An optional list of `ArtifactRef` that references artifacts, that are used as input for</span>
+<span class="sd">        this run. This information will help to create and visualize the experiment lineage.</span>
+<span class="sd">        auto_create_experiment: Specifies whether the experiment (see `experiment_key`) should be created if it</span>
+<span class="sd">        does not exist or not. If `auto_create_experiment` is `False` and the experiment does not exist an error</span>
+<span class="sd">        will be raised.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        This object encapsulates the newly created run and provides functions to log all information \</span>
+<span class="sd">        that belongs to the run.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">ActiveRun</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__api_client</span><span class="p">,</span>
+                     <span class="bp">self</span><span class="o">.</span><span class="n">__project_key</span><span class="p">,</span>
+                     <span class="n">experiment_key</span><span class="p">,</span>
+                     <span class="n">run_name</span><span class="p">,</span>
+                     <span class="n">used_artifacts</span><span class="p">,</span>
+                     <span class="n">auto_create_experiment</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+<hr />
+<h2 id="active-run">Active Run</h2>
+
+
+  <div class="doc doc-object doc-class">
+
+<a id="mlaide.active_run.ActiveRun"></a>
+    <div class="doc doc-contents first">
+
+      <p>This class provides access to runs that are stored in ML Aide</p>
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="mlaide.active_run.ActiveRun.add_artifact_file" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">add_artifact_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artifact</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Add a file to an existing artifact. To add multiple file, specify a directory or invoke this function
+multiple times.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>artifact</code></td>
+        <td><code>Artifact</code></td>
+        <td><p>The artifact to which the file should be added.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>file</code></td>
+        <td><code>Union[str, _io.BytesIO]</code></td>
+        <td><p>The file that should be added. This can be a io.BytesIO object or a string to a file or directory.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>filename</code></td>
+        <td><code>str</code></td>
+        <td><p>The filename. If the file is of type BytesIO the filename must be specified. If the file is a
+string, the original filename will be the default.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>mlaide/active_run.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add_artifact_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">artifact</span><span class="p">:</span> <span class="n">Artifact</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">BytesIO</span><span class="p">],</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Add a file to an existing artifact. To add multiple file, specify a directory or invoke this function</span>
+<span class="sd">    multiple times.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        artifact: The artifact to which the file should be added.</span>
+<span class="sd">        file: The file that should be added. This can be a io.BytesIO object or a string to a file or directory.</span>
+<span class="sd">        filename: The filename. If the file is of type BytesIO the filename must be specified. If the file is a</span>
+<span class="sd">            string, the original filename will be the default.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">artifact_api</span><span class="o">.</span><span class="n">upload_file</span><span class="p">(</span>
+        <span class="n">client</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__api_client</span><span class="p">,</span>
+        <span class="n">project_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__project_key</span><span class="p">,</span>
+        <span class="n">artifact_name</span><span class="o">=</span><span class="n">artifact</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+        <span class="n">artifact_version</span><span class="o">=</span><span class="n">artifact</span><span class="o">.</span><span class="n">version</span><span class="p">,</span>
+        <span class="n">filename</span><span class="o">=</span><span class="n">filename</span> <span class="k">if</span> <span class="n">filename</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">ActiveRun</span><span class="o">.</span><span class="n">__extract_filename</span><span class="p">(</span><span class="n">file</span><span class="p">),</span>
+        <span class="n">file</span><span class="o">=</span><span class="n">ActiveRun</span><span class="o">.</span><span class="n">__normalize_file</span><span class="p">(</span><span class="n">file</span><span class="p">))</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="mlaide.active_run.ActiveRun.create_artifact" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">create_artifact</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">artifact_type</span><span class="p">,</span> <span class="n">metadata</span><span class="p">)</span></code>
+
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Creates a new artifact. If an artifact with the same name already exists, a new artifact with the
+next available version number will be registered.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>name</code></td>
+        <td><code>str</code></td>
+        <td><p>The name of the artifact.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>artifact_type</code></td>
+        <td><code>str</code></td>
+        <td><p>The artifact type.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>metadata</code></td>
+        <td><code>Optional[Dict[str, str]]</code></td>
+        <td><p>Some optional metadata that will be attached to the artifact.</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>mlaide/active_run.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">create_artifact</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">artifact_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Artifact</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Creates a new artifact. If an artifact with the same name already exists, a new artifact with the</span>
+<span class="sd">    next available version number will be registered.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        name: The name of the artifact.</span>
+<span class="sd">        artifact_type: The artifact type.</span>
+<span class="sd">        metadata: Some optional metadata that will be attached to the artifact.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">artifact_dto</span> <span class="o">=</span> <span class="n">ArtifactDto</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">artifact_type</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">,</span> <span class="n">run_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__run</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
+
+    <span class="n">artifact_dto</span> <span class="o">=</span> <span class="n">artifact_api</span><span class="o">.</span><span class="n">create_artifact</span><span class="p">(</span>
+        <span class="n">client</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__api_client</span><span class="p">,</span>
+        <span class="n">project_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__project_key</span><span class="p">,</span>
+        <span class="n">artifact</span><span class="o">=</span><span class="n">artifact_dto</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">dto_to_artifact</span><span class="p">(</span><span class="n">artifact_dto</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="mlaide.active_run.ActiveRun.log_metric" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">log_metric</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></code>
+
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Logs a metric</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>key</code></td>
+        <td><code>str</code></td>
+        <td><p>The key of the metric.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>value</code></td>
+        <td><code></code></td>
+        <td><p>The value of the metric. The value can be any type that is JSON serializable.</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>mlaide/active_run.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">log_metric</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Run</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Logs a metric</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        key: The key of the metric.</span>
+<span class="sd">        value: The value of the metric. The value can be any type that is JSON serializable.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">__run</span><span class="o">.</span><span class="n">metrics</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="n">run_api</span><span class="o">.</span><span class="n">update_run_metrics</span><span class="p">(</span>
+        <span class="n">client</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__api_client</span><span class="p">,</span>
+        <span class="n">project_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__project_key</span><span class="p">,</span>
+        <span class="n">run_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__run</span><span class="o">.</span><span class="n">key</span><span class="p">,</span>
+        <span class="n">metrics</span><span class="o">=</span><span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span><span class="p">})</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__run</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="mlaide.active_run.ActiveRun.log_model" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">log_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Creates a new artifact with type 'model'. The artifact will be registered as model.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>model</code></td>
+        <td><code></code></td>
+        <td><p>The model. The model must be serializable.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>model_name</code></td>
+        <td><code>str</code></td>
+        <td><p>The name of the model. The name will be used as artifact filename.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>metadata</code></td>
+        <td><code>Optional[Dict[str, str]]</code></td>
+        <td><p>Some optional metadata that will be attached to the artifact.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>mlaide/active_run.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">log_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">metadata</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Creates a new artifact with type &#39;model&#39;. The artifact will be registered as model.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        model: The model. The model must be serializable.</span>
+<span class="sd">        model_name: The name of the model. The name will be used as artifact filename.</span>
+<span class="sd">        metadata: Some optional metadata that will be attached to the artifact.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">serialized_model</span> <span class="o">=</span> <span class="n">_model_deser</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+    <span class="n">artifact</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_artifact</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">model_name</span><span class="p">,</span> <span class="n">artifact_type</span><span class="o">=</span><span class="s1">&#39;model&#39;</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">add_artifact_file</span><span class="p">(</span><span class="n">artifact</span><span class="o">=</span><span class="n">artifact</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">serialized_model</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;model.pkl&#39;</span><span class="p">)</span>
+
+    <span class="n">artifact_api</span><span class="o">.</span><span class="n">create_model</span><span class="p">(</span>
+        <span class="n">client</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__api_client</span><span class="p">,</span>
+        <span class="n">project_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__project_key</span><span class="p">,</span>
+        <span class="n">artifact_name</span><span class="o">=</span><span class="n">artifact</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+        <span class="n">artifact_version</span><span class="o">=</span><span class="n">artifact</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="mlaide.active_run.ActiveRun.log_parameter" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">log_parameter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></code>
+
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Logs a parameter</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>key</code></td>
+        <td><code>str</code></td>
+        <td><p>The key of the parameter.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>value</code></td>
+        <td><code></code></td>
+        <td><p>The value of the parameter. The value must be a scalar value (e.g. string, int, float, ...).</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>mlaide/active_run.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">log_parameter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Run</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Logs a parameter</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        key: The key of the parameter.</span>
+<span class="sd">        value: The value of the parameter. The value must be a scalar value (e.g. string, int, float, ...).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">__run</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="n">run_api</span><span class="o">.</span><span class="n">update_run_parameters</span><span class="p">(</span>
+        <span class="n">client</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__api_client</span><span class="p">,</span>
+        <span class="n">project_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__project_key</span><span class="p">,</span>
+        <span class="n">run_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">__run</span><span class="o">.</span><span class="n">key</span><span class="p">,</span>
+        <span class="n">parameters</span><span class="o">=</span><span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span><span class="p">})</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__run</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="mlaide.active_run.ActiveRun.set_completed_status" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">set_completed_status</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code>
+
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Sets the status of the current run as completed.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>mlaide/active_run.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">set_completed_status</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Run</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Sets the status of the current run as completed.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_set_status</span><span class="p">(</span><span class="n">RunStatus</span><span class="o">.</span><span class="n">COMPLETED</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="mlaide.active_run.ActiveRun.set_failed_status" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">set_failed_status</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code>
+
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Sets the status of the current run as failed.</p>
+
+        <details class="quote">
+          <summary>Source code in <code>mlaide/active_run.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">set_failed_status</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Run</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Sets the status of the current run as failed.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_set_status</span><span class="p">(</span><span class="n">RunStatus</span><span class="o">.</span><span class="n">FAILED</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+
+<hr />
+<h2 id="active-artifact">Active Artifact</h2>
+
+
+  <div class="doc doc-object doc-class">
+
+<a id="mlaide.active_artifact.ActiveArtifact"></a>
+    <div class="doc doc-contents first">
+
+      <p>This class provides access to artifacts that are stored in ML Aide</p>
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="mlaide.active_artifact.ActiveArtifact.download" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">download</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_directory</span><span class="p">)</span></code>
+
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Downloads all files of this artifact and stores them into the specified directory.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>target_directory</code></td>
+        <td><code>str</code></td>
+        <td><p>The path to the directory where all files should be stored.</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>mlaide/active_artifact.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">download</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_directory</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Downloads all files of this artifact and stores them into the specified directory.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        target_directory: The path to the directory where all files should be stored.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># download</span>
+    <span class="n">artifact_bytes</span><span class="p">,</span> <span class="n">artifact_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__download_zip</span><span class="p">()</span>
+
+    <span class="c1"># unzip and write to disk</span>
+    <span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="n">artifact_bytes</span><span class="p">)</span> <span class="k">as</span> <span class="n">z</span><span class="p">:</span>
+        <span class="n">z</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">target_directory</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h3 id="mlaide.active_artifact.ActiveArtifact.load" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span></code>
+
+
+</h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Load a specific file of this artifact into memory</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>filename</code></td>
+        <td><code>str</code></td>
+        <td><p>The name of the file that should be loaded</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>mlaide/active_artifact.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BytesIO</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Load a specific file of this artifact into memory</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        filename: The name of the file that should be loaded</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># TODO: Do not download whole zip; instead download just the single file</span>
+    <span class="n">zip_bytes</span><span class="p">,</span> <span class="n">zip_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__download_zip</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="n">zip_bytes</span><span class="p">)</span> <span class="k">as</span> <span class="n">z</span><span class="p">:</span>
+        <span class="n">zip_info</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">infolist</span><span class="p">()</span>
+        <span class="n">desired_file</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">info</span> <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">zip_info</span> <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">filename</span> <span class="o">==</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">z</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">desired_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_file</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">BytesIO</span><span class="p">(</span><span class="n">zip_file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../../essentials/users/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Users
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../rest-api/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              REST API
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "search.highlight", "search.share"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4ea5477f.min.js"></script>
+      
+    
+  </body>
+</html>
