@@ -12,7 +12,7 @@
     === "GUI"
         Click the _ML Aide_ button in the upper left corner
 
-        OR
+        Or
 
         Click the _Projects_ dropdown in the main navigation and click _Show all_
 

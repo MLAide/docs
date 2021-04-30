@@ -26,8 +26,8 @@
     === "GUI"
         1. Select the relevant project by clicking it in the home view or via the _Projects_ dropdown in the main navigation
         2. Click the _Runs_ button in the side navigation
-        3. Click _:material-eye: Show Parameters_ button at the top of the runs table to show parameters for runs
-        3. Click _:material-eye-off: Hide Parameters_ button at the top of the runs table to hide parameters for runs
+        3. Click the _:material-eye: Show Parameters_ button at the top of the runs table to show parameters for runs
+        3. Click the _:material-eye-off: Hide Parameters_ button at the top of the runs table to hide parameters for runs
 
 ### Compare Runs
 

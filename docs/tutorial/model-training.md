@@ -91,14 +91,14 @@ run_linear_regression.log_metric('cross validation', cross_validation)
 run_linear_regression.set_completed_status()
 ```
 
-Now you see the run `linear regression` in the [ML Aide Web UI](http://localhost:8880/projects/usa-housing/runs).
+Now you see the run `linear regression` in the [ML Aide web UI](http://localhost:8880/projects/usa-housing/runs).
 Check the metrics and artifacts of this run.
 
 ## Lasso Regression
 
 Until now, we created three runs (`data preparation`, `pipeline setup`, and `linear regression`). All of these runs belong to the experiment `linear-regression`.
 
-Now we train another model type - a lasso regression model. But we want to reuse the results of the data preparation and the pipeline setup. Therefore we open the [Experiemnts View](http://localhost:8880/projects/usa-housing/experiments) and create a new experiment.
+Now we train another model type - a lasso regression model, and we want to reuse the results of the data preparation and the pipeline setup. Therefore, we open the [experiments view](http://localhost:8880/projects/usa-housing/experiments) and create a new experiment.
 Click on `Add Experiment` and add an experiment with the name `Lasso Regression`.
 
 Now we create a new run and set the new experiment that we created. Based on the input artifacts ML Aide takes care of everything else.

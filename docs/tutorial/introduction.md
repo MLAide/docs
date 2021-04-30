@@ -1,16 +1,16 @@
 # Introduction
 
 In this tutorial, we will use the [USA Housing dataset](https://www.kaggle.com/vedavyasv/usa-housing) 
-to predict prices of houses in Boston. To keep things simple for this tutorial we won't use 
+to predict the prices of houses in Boston. To keep things simple for this tutorial we won't use 
 Jupyter Notebooks. Instead, we write just simple Python code.
 
 We will use the dataset to train some machine learning models. All processed data and all experiments
 should be tracked in ML Aide. We also want to store the trained models in ML Aide for later usage.
 
-To get started we need some initial work to be done
+To get started we need some initial work to be done.
 
 ## Run ML Aide
-For this tutorial ML Aide server and web UI is needed. The [quickstart](../start/quickstart.md) helps to get ML Aide running.
+For this tutorial, ML Aide server and web-UI are required. The [quickstart](../start/quickstart.md) helps to get ML Aide running.
 
 ## Create a workspace directory
 In this tutorial, we will use `~/mlaide-tutorial/` as our working directory.
@@ -23,7 +23,7 @@ pip install scikit-learn pandas mlaide
 ```
 
 ## Create ML Aide project
-- Open the [ML Aide Web UI on localhost:8880](http://localhost:8880)
+- Open the [ML Aide web UI on localhost:8880](http://localhost:8880)
 - Login as adam (username = `adam`; password = `adam1`)
 - Click on `Add Project` to create a new project - enter `USA Housing` as project name
 
