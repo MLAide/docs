@@ -41,13 +41,7 @@
 
 ???+ note "Instructions"
     === "Code"
-        ```python
-        options = client.MvcOptions(
-            mvc_server_url='http://localhost:8881/api/v1',
-            api_key='<api-key>'
-        )
-        mlaide_client = client.MvcClient(project_key='usa-housing', options=options)
-        ```
+        --8<-- "snippets/tutorial/connection.py.md"
 
 ### Delete API Key
 

@@ -15,4 +15,4 @@ mkdocs serve
 
 ## Documentation
 
-https://mlaide.github.io/docs/
+https://docs.mlaide.com/

@@ -8,7 +8,7 @@ mkdocs = "*"
 mkdocs-material = "*"
 mkdocstrings = "*"
 mkdocs-render-swagger-plugin = "*"
-mlaide = "*"
+mlaide = "==0.1.0a1"
 
 [packages]
 
