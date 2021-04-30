@@ -24,6 +24,20 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      - name: Setup Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
+          architecture: 'x64'
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip     # install pip
+          python3 -m pip install mkdocs            # install mkdocs 
+          python3 -m pip install mkdocs-material   # install material theme
+          python3 -m pip install mkdocstrings   # install mkdocsstrings theme
+          python3 -m pip install mkdocs-render-swagger-plugin   # install swagger plugin
+          python3 -m pip install mlaide   # install mlaide library
+
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
         # Or use mhausenblas/mkdocs-deploy-gh-pages@nomaterial to build without the mkdocs-material theme
@@ -31,4 +45,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           #CUSTOM_DOMAIN: optionaldomain.com
           #CONFIG_FILE: mkdocs.yml
-          EXTRA_PACKAGES: mkdocs-render-swagger-plugin
+          #EXTRA_PACKAGES: mkdocs-render-swagger-plugin
