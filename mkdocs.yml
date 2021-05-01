@@ -17,7 +17,7 @@ nav:
       #- start/environment-setup.md
   - "Tutorial":
       - tutorial/introduction.md
-      - tutorial/create-connection.md
+      - tutorial/setup.md
       - tutorial/data-preparation.md
       - tutorial/model-training.md
       - tutorial/model-evaluation.md

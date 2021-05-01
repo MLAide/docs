@@ -15,7 +15,7 @@ curl https://raw.githubusercontent.com/MLAide/docs/master/docs/tutorial/housing.
 
 ## Create connection to ML Aide webserver
 Our data preparation will be implemented in `data_preparation.py`. Therefore create a new file with this name.
-At the top we need some imports and the connection as described in the [previous step](create-connection.md):
+At the top we need some imports and the connection as described in the [previous step](setup.md):
 ```python
 from mlaide import MLAideClient, ConnectionOptions
 import pandas as pd
