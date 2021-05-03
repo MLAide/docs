@@ -9,6 +9,8 @@ theme:
     - search.share
   icon:
     repo: fontawesome/brands/github
+  logo: img/logo.png
+  favicon: img/favicon.ico
 repo_url: https://github.com/MLAide/docs
 nav:
   - index.md
