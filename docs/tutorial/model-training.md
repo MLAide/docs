@@ -181,7 +181,7 @@ run_lasso.set_completed_status()
 ```
 
 Start your python script using your shell with `python training.py`. After the script completed check the 
-[Web UI](http://localhost:8880/projects/usa-housing) to see the created runs and the artifact.
+[web UI](http://localhost:8880/projects/usa-housing) to see the created runs and the artifact.
 
 ## Summary
 

@@ -21,7 +21,7 @@ nav:
       - tutorial/data-preparation.md
       - tutorial/model-training.md
       - tutorial/model-evaluation.md
-      - tutorial/productionize-model.md
+      - tutorial/model-serving.md
   - "Essentials":
       - essentials/index.md
       - essentials/projects.md

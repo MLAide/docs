@@ -41,7 +41,7 @@ from mlaide import MLAideClient, ConnectionOptions
 ```
 --8<-- "snippets/tutorial/connection.py.md"
 
-Replace `api_key` with your personal API key that you created using the ML Aide Web UI.
+Replace `api_key` with your personal API key that you created using the ML Aide web UI.
 
 ## Summary
 In this chapter we have
