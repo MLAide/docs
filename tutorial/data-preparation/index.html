@@ -347,6 +347,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#create-an-api-key" class="md-nav__link">
+    Create an API key
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#create-connection-to-ml-aide-webserver" class="md-nav__link">
     Create connection to ML Aide webserver
   </a>
@@ -404,8 +411,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../productionize-model/" class="md-nav__link">
-        Productionize Model
+      <a href="../model-serving/" class="md-nav__link">
+        Model Serving
       </a>
     </li>
   
@@ -634,6 +641,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#create-an-api-key" class="md-nav__link">
+    Create an API key
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#create-connection-to-ml-aide-webserver" class="md-nav__link">
     Create connection to ML Aide webserver
   </a>
@@ -681,10 +695,23 @@ and save it in a subdirectory called <code>data</code>.
 <div class="highlight"><pre><span></span><code>mkdir data
 curl https://raw.githubusercontent.com/MLAide/docs/master/docs/tutorial/housing.csv --output ./data/housing.csv
 </code></pre></div></p>
+<h2 id="create-an-api-key">Create an API key</h2>
+<p>Later, we want to send all parameters, metrics, and models of our experiments to ML Aide.
+Therefore, we need to set an API key in our python client. Otherwise, we won't be able
+to authenticate against the ML Aide server.</p>
+<ul>
+<li>In the upper right click on <code>adam</code> &gt; <code>Settings</code></li>
+<li>Go to <code>API Keys</code> in the left navigation</li>
+<li>Click on <code>Add API Key</code></li>
+<li>Enter any description and click on <code>Create</code></li>
+<li>Copy the show API key and store it somewhere safe. The API key won't be shown again. If you lose your API key you have to create a new one.</li>
+</ul>
 <h2 id="create-connection-to-ml-aide-webserver">Create connection to ML Aide webserver</h2>
-<p>Our data preparation will be implemented in <code>data_preparation.py</code>. Therefore create a new file with this name.
-At the top we need some imports and the connection as described in the <a href="../setup/">previous step</a>:
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">mlaide</span> <span class="kn">import</span> <span class="n">MLAideClient</span><span class="p">,</span> <span class="n">ConnectionOptions</span>
+<p>Our data preparation will be implemented in <code>data_preparation.py</code>. Therefore, create a new file with this name.
+To create a connection to the ML Aide webserver with Python clients you have to use <code>mlaide.MLAideClient</code>. An object
+of this class is the main entry point for all kinds of operations. Replace <code>api_key</code> with your personal API key that 
+you created using the ML Aide web UI.</p>
+<p><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">mlaide</span> <span class="kn">import</span> <span class="n">MLAideClient</span><span class="p">,</span> <span class="n">ConnectionOptions</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="n">options</span> <span class="o">=</span> <span class="n">ConnectionOptions</span><span class="p">(</span>
@@ -716,8 +743,10 @@ root. In the end, don't forget to mark the run as completed.</p>
 <h2 id="summary">Summary</h2>
 <p>In this chapter we </p>
 <ul>
+<li>created an API key for authorization </li>
 <li>created our first run in ML Aide</li>
 <li>attached the dataset as an artifact to the run</li>
+<li>connected the python client to the ML Aide webserver</li>
 </ul>
 <p>Your code should look like the following snippet shows.</p>
 <details class="note"><summary>Code</summary><div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">data_preparation.py</label><div class="tabbed-content">

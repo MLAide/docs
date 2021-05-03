@@ -365,7 +365,7 @@
       
         <li class="md-nav__item">
   <a href="#compare-runs" class="md-nav__link">
-    Compare runs
+    Compare Runs
   </a>
   
 </li>
@@ -373,6 +373,20 @@
         <li class="md-nav__item">
   <a href="#visualize-lineage" class="md-nav__link">
     Visualize Lineage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-staging" class="md-nav__link">
+    Model Staging
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
   </a>
   
 </li>
@@ -390,8 +404,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../productionize-model/" class="md-nav__link">
-        Productionize Model
+      <a href="../model-serving/" class="md-nav__link">
+        Model Serving
       </a>
     </li>
   
@@ -614,7 +628,7 @@
       
         <li class="md-nav__item">
   <a href="#compare-runs" class="md-nav__link">
-    Compare runs
+    Compare Runs
   </a>
   
 </li>
@@ -622,6 +636,20 @@
         <li class="md-nav__item">
   <a href="#visualize-lineage" class="md-nav__link">
     Visualize Lineage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-staging" class="md-nav__link">
+    Model Staging
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
   </a>
   
 </li>
@@ -644,7 +672,7 @@
                 
                 
                 <h1 id="model-evaluation">Model Evaluation</h1>
-<h2 id="compare-runs">Compare runs</h2>
+<h2 id="compare-runs">Compare Runs</h2>
 <p>A key feature of ML Aide is to compare several runs with their parameters and metrics.
 Therefore open the <a href="http://localhost:8880/projects/usa-housing/runs">web UI</a> and
 select all runs that should be compared. In this case, we want to compare 
@@ -659,6 +687,27 @@ in a particular experiment. For this, you can use the lineage visualization of e
 an experiment. You will see all runs (blue color) and all input/output artifacts (red color).</p>
 <p>The table below shows you all runs and artifacts. From the runs table, you can jump the run details
 or to the run comparison.</p>
+<h2 id="model-staging">Model Staging</h2>
+<p>In this very basic example we can see that both models are quite similar. We can choose any of these
+models and tag it as 'production ready'. This helps to keep track of models that are used in production,
+are still under devlopment (or QA) or are already deprecated.</p>
+<p>ML Aide provides the following stages for models:</p>
+<ul>
+<li>None</li>
+<li>Staging</li>
+<li>Production</li>
+<li>Deprecated</li>
+<li>Abandoned</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>In this chapter we </p>
+<ul>
+<li>compared the two model training runs</li>
+<li>visualized the model lineage</li>
+<li>staged the models</li>
+</ul>
+<p>ML Aide provides us with tools to keep track of all machine learning experiments, the models, and their lineage.</p>
+<p>In the next chapter, we will learn how we can load models from ML Aide to predict values.</p>
                 
               
               
@@ -692,13 +741,13 @@ or to the run comparison.</p>
         </a>
       
       
-        <a href="../productionize-model/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../model-serving/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Productionize Model
+              Model Serving
             </div>
           </div>
           <div class="md-footer__button md-icon">

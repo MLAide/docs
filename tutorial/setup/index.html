@@ -342,8 +342,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-dependencies-via-pip" class="md-nav__link">
-    Install dependencies via pip
+  <a href="#prepare-environment" class="md-nav__link">
+    Prepare environment
   </a>
   
 </li>
@@ -351,20 +351,6 @@
         <li class="md-nav__item">
   <a href="#create-ml-aide-project" class="md-nav__link">
     Create ML Aide project
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-an-api-key" class="md-nav__link">
-    Create an API key
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-connection" class="md-nav__link">
-    Create Connection
   </a>
   
 </li>
@@ -425,8 +411,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../productionize-model/" class="md-nav__link">
-        Productionize Model
+      <a href="../model-serving/" class="md-nav__link">
+        Model Serving
       </a>
     </li>
   
@@ -662,8 +648,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-dependencies-via-pip" class="md-nav__link">
-    Install dependencies via pip
+  <a href="#prepare-environment" class="md-nav__link">
+    Prepare environment
   </a>
   
 </li>
@@ -671,20 +657,6 @@
         <li class="md-nav__item">
   <a href="#create-ml-aide-project" class="md-nav__link">
     Create ML Aide project
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-an-api-key" class="md-nav__link">
-    Create an API key
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-connection" class="md-nav__link">
-    Create Connection
   </a>
   
 </li>
@@ -719,48 +691,53 @@
 <p>For this tutorial, ML Aide server and web-UI are required. The <a href="../../start/quickstart/">quickstart</a> helps to get ML Aide running.</p>
 <h2 id="create-a-workspace-directory">Create a workspace directory</h2>
 <p>In this tutorial, we will use <code>~/mlaide-tutorial/</code> as our working directory.</p>
-<h2 id="install-dependencies-via-pip">Install dependencies via pip</h2>
-<p>Open a terminal in the working directory and install all dependencies.
+<h2 id="prepare-environment">Prepare environment</h2>
+<p>For this tutorial, we recommend a Python environment manager like <a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a> 
+in combination with <a href="https://github.com/pyenv/pyenv">pyenv</a>. Of course, you don't have to use virtualenv or you can use
+any other environment manager. But in all cases, you should install the dependencies from step 6.</p>
+<ol>
+<li>
+<p>Open a termin and navigate to the project directory
 <div class="highlight"><pre><span></span><code>cd ~/mlaide-tutorial
-pip install scikit-learn pandas mlaide
 </code></pre></div></p>
+</li>
+<li>
+<p>Install Python 3.9 (if not already present) via pyenv
+<div class="highlight"><pre><span></span><code>pyenv install
+</code></pre></div></p>
+</li>
+<li>
+<p>Install virtualenv (if not already present)
+<div class="highlight"><pre><span></span><code>pip install virtualenv
+</code></pre></div></p>
+</li>
+<li>
+<p>Create virtual environment
+<div class="highlight"><pre><span></span><code>virtualenv .venv
+</code></pre></div></p>
+</li>
+<li>
+<p>Activate virtual environment
+<div class="highlight"><pre><span></span><code>source .venv/bin/activate
+</code></pre></div></p>
+</li>
+<li>
+<p>Install all dependencies
+<div class="highlight"><pre><span></span><code>pip install scikit-learn pandas numpy mlaide
+</code></pre></div></p>
+</li>
+</ol>
 <h2 id="create-ml-aide-project">Create ML Aide project</h2>
 <ul>
 <li>Open the <a href="http://localhost:8880">ML Aide web UI on localhost:8880</a></li>
 <li>Login as adam (username = <code>adam</code>; password = <code>adam1</code>)</li>
 <li>Click on <code>Add Project</code> to create a new project - enter <code>USA Housing</code> as project name</li>
 </ul>
-<h2 id="create-an-api-key">Create an API key</h2>
-<p>Later, we want to send all parameters, metrics, and models of our experiments to ML Aide.
-Therefore, we need to set an API key in our python client. Otherwise, we won't be able
-to authenticate against the ML Aide server.</p>
-<ul>
-<li>In the upper right click on <code>adam</code> &gt; <code>Settings</code></li>
-<li>Go to <code>API Keys</code> in the left navigation</li>
-<li>Click on <code>Add API Key</code></li>
-<li>Enter any description and click on <code>Create</code></li>
-<li>Copy the show API key and store it somewhere safe. The API key won't be shown again. If you lose your API key you have to create a new one.</li>
-</ul>
-<h2 id="create-connection">Create Connection</h2>
-<p>To create a connection to the ML Aide webserver with Python
-clients you have to use <code>mlaide.MLAideClient</code>. An object
-of this class is the main entry point for all kinds of operations.</p>
-<p><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">mlaide</span> <span class="kn">import</span> <span class="n">MLAideClient</span><span class="p">,</span> <span class="n">ConnectionOptions</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="n">options</span> <span class="o">=</span> <span class="n">ConnectionOptions</span><span class="p">(</span>
-    <span class="n">server_url</span><span class="o">=</span><span class="s1">&#39;http://localhost:8881/api/v1&#39;</span><span class="p">,</span> <span class="c1"># the ML Aide demo server runs on port 8881 per default</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s1">&#39;&lt;your api key&gt;&#39;</span>
-<span class="p">)</span>
-<span class="n">mlaide_client</span> <span class="o">=</span> <span class="n">MLAideClient</span><span class="p">(</span><span class="n">project_key</span><span class="o">=</span><span class="s1">&#39;usa-housing&#39;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
-</code></pre></div></p>
-<p>Replace <code>api_key</code> with your personal API key that you created using the ML Aide Web UI.</p>
 <h2 id="summary">Summary</h2>
 <p>In this chapter we have</p>
 <ul>
 <li>set up our working environment</li>
 <li>created our tutorial project</li>
-<li>created an API key for authorization </li>
-<li>created a snippet to connect our python client to the ML Aide webserver.</li>
 </ul>
 <p>Next, we will load and prepare the dataset. Here, we will use the snippet.</p>
 <p>Now you should have everything up and running to start coding.</p>
