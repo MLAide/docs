@@ -7,11 +7,39 @@ For this tutorial, ML Aide server and web-UI are required. The [quickstart](../s
 ## Create a workspace directory
 In this tutorial, we will use `~/mlaide-tutorial/` as our working directory.
 
-## Install dependencies via pip
-Open a terminal in the working directory and install all dependencies.
+## Prepare environment
+For this tutorial, we recommend a Python environment manager like [virtualenv](https://virtualenv.pypa.io/en/latest/) 
+in combination with [pyenv](https://github.com/pyenv/pyenv). Of course, you don't have to use virtualenv or you can use
+any other environment manager. But in all cases, you should install the dependencies from step 6.
+
+1. Open a termin and navigate to the project directory
 ```
 cd ~/mlaide-tutorial
-pip install scikit-learn pandas mlaide
+```
+
+2. Install Python 3.9 (if not already present) via pyenv
+```
+pyenv install
+```
+
+3. Install virtualenv (if not already present)
+```
+pip install virtualenv
+```
+
+4. Create virtual environment
+```
+virtualenv .venv
+```
+
+5. Activate virtual environment
+```
+source .venv/bin/activate
+```
+
+6. Install all dependencies
+```
+pip install scikit-learn pandas numpy mlaide
 ```
 
 ## Create ML Aide project
@@ -19,37 +47,11 @@ pip install scikit-learn pandas mlaide
 - Login as adam (username = `adam`; password = `adam1`)
 - Click on `Add Project` to create a new project - enter `USA Housing` as project name
 
-## Create an API key
-Later, we want to send all parameters, metrics, and models of our experiments to ML Aide.
-Therefore, we need to set an API key in our python client. Otherwise, we won't be able
-to authenticate against the ML Aide server.
-
-- In the upper right click on `adam` > `Settings`
-- Go to `API Keys` in the left navigation
-- Click on `Add API Key`
-- Enter any description and click on `Create`
-- Copy the show API key and store it somewhere safe. The API key won't be shown again. If you lose your API key you have to create a new one.
-
-
-## Create Connection
-To create a connection to the ML Aide webserver with Python
-clients you have to use `mlaide.MLAideClient`. An object
-of this class is the main entry point for all kinds of operations.
-
-```python
-from mlaide import MLAideClient, ConnectionOptions
-```
---8<-- "snippets/tutorial/connection.py.md"
-
-Replace `api_key` with your personal API key that you created using the ML Aide web UI.
-
 ## Summary
 In this chapter we have
 
 - set up our working environment
 - created our tutorial project
-- created an API key for authorization 
-- created a snippet to connect our python client to the ML Aide webserver.
 
 Next, we will load and prepare the dataset. Here, we will use the snippet.
 

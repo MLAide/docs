@@ -13,9 +13,23 @@ mkdir data
 curl https://raw.githubusercontent.com/MLAide/docs/master/docs/tutorial/housing.csv --output ./data/housing.csv
 ```
 
+## Create an API key
+Later, we want to send all parameters, metrics, and models of our experiments to ML Aide.
+Therefore, we need to set an API key in our python client. Otherwise, we won't be able
+to authenticate against the ML Aide server.
+
+- In the upper right click on `adam` > `Settings`
+- Go to `API Keys` in the left navigation
+- Click on `Add API Key`
+- Enter any description and click on `Create`
+- Copy the show API key and store it somewhere safe. The API key won't be shown again. If you lose your API key you have to create a new one.
+
 ## Create connection to ML Aide webserver
-Our data preparation will be implemented in `data_preparation.py`. Therefore create a new file with this name.
-At the top we need some imports and the connection as described in the [previous step](setup.md):
+Our data preparation will be implemented in `data_preparation.py`. Therefore, create a new file with this name.
+To create a connection to the ML Aide webserver with Python clients you have to use `mlaide.MLAideClient`. An object
+of this class is the main entry point for all kinds of operations. Replace `api_key` with your personal API key that 
+you created using the ML Aide web UI.
+
 ```python
 from mlaide import MLAideClient, ConnectionOptions
 import pandas as pd
@@ -52,8 +66,10 @@ Start your python script using your shell with `python data_preparation.py`. Aft
 ## Summary
 In this chapter we 
 
+- created an API key for authorization 
 - created our first run in ML Aide
 - attached the dataset as an artifact to the run
+- connected the python client to the ML Aide webserver
 
 Your code should look like the following snippet shows.
 ??? note "Code"
