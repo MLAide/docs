@@ -36,14 +36,14 @@ docker-compose up
 ## Verify
 Now you should have several containers running:
 
-- **MLAide web user interface**
+- **MLAide web UI**
 - **MLAide webserver**
 - **MongoDB** which is used by the webserver to store all structured metadata
 - **min.io** that is used by the webserver to store all artifacts and models
 - **keycloak** to provide an identity provider, authentication, and authorization
 
 ## Use
-You can access the [Web UI on localhost:8880](http://localhost:8880) with your browser. This demo
+You can access the [web UI on localhost:8880](http://localhost:8880) with your browser. This demo
 provides three pre-defined users:
 
 - adam (password = adam1, email = adam@demo.mlaide.com)
@@ -51,4 +51,5 @@ provides three pre-defined users:
 - eve (password = eve1, email = eve@demo.mlaide.com)
 
 ## Using the Python client
-To track your machine learning runs you can use the Python client. Start the [Tutorial](../tutorial/introduction.md) for your first steps.
+To track your machine learning experiments you can use the Python client. Start the 
+[Tutorial](../tutorial/introduction.md) for your first steps.
