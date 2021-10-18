@@ -1,6 +1,6 @@
 # Introduction
 
-ML Aide's purpose is making model management a joy for you!
+ML Aide's purpose is to make model management a joy for you!
 
 ## Key Benefits
 
