@@ -21,7 +21,7 @@ The file is located at `/etc/hosts` (Unix) or `C:\Windows\System32\drivers\etc\h
 127.0.0.1 keycloak.mlaide
 ```
 
-On Unix systems, you can use the following command to add the entry to your `hosts file.
+On Unix systems, you can use the following command to add the entry to your `hosts` file.
 ```
 echo '127.0.0.1 keycloak.mlaide' | sudo tee -a /etc/hosts
 ```
