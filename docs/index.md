@@ -2,6 +2,13 @@
 
 ML Aide's purpose is to make model management a joy for you!
 
+ML Aide simplifies the documentation process and tracks
+all relevant information of machine learning model creation.
+It makes model lifecycle management a joy and enables
+machine learning operations.
+ML Aide is deployable anywhere and easy to integrate into the
+existing enterprise software landscape.
+
 ## Key Benefits
 
 ML Aide is designed and developed to be
