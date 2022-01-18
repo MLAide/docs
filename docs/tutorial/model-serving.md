@@ -1,6 +1,6 @@
 # Model Serving
 
-In the previous chapters we trained two models based on the 
+In the previous chapters, we trained two models based on the 
 [USA Housing dataset](https://www.kaggle.com/vedavyasv/usa-housing).
 
 Now we will reload the linear regression model to do some predictions.

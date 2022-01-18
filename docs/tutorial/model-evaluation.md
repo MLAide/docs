@@ -21,9 +21,9 @@ The table below shows you all runs and artifacts. From the runs table, you can j
 or to the run comparison.
 
 ## Model Staging
-In this very basic example we can see that both models are quite similar. We can choose any of these
-models and tag it as 'production ready'. This helps to keep track of models that are used in production,
-are still under devlopment (or QA) or are already deprecated.
+In this very basic example, we can see that both models are quite similar. We can choose any of these
+models and tag them as 'production ready'. This helps to keep track of models that are used in production,
+are still under development (or QA), or are already deprecated.
 
 ML Aide provides the following stages for models:
 

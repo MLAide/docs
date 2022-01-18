@@ -5,7 +5,5 @@ to predict the prices of houses in Boston. To keep things simple for this tutori
 Jupyter Notebooks. Instead, we write just simple Python code.
 
 We will use the dataset to train some machine learning models. All processed data and all experiments
-should be tracked in ML Aide. We also want to store the trained models in ML Aide for later usage.
-
-To get started we need some initial work to be done.
-
+will be tracked in ML Aide. We'll also store the trained models in ML Aide and read them later to 
+predict new values.
