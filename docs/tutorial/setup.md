@@ -12,7 +12,7 @@ For this tutorial, we recommend a Python environment manager like [virtualenv](h
 in combination with [pyenv](https://github.com/pyenv/pyenv). Of course, you don't have to use virtualenv or you can use
 any other environment manager. But in all cases, you should install the dependencies from step 6.
 
-1. Open a termin and navigate to the project directory
+1. Open a terminal and navigate to the project directory
 ```
 cd ~/mlaide-tutorial
 ```
