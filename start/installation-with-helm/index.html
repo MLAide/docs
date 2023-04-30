@@ -1,0 +1,1620 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.2">
+    
+    
+      
+        <title>Installation with Helm - ML Aide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f955dcd.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../css/material-enhancements.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="mlaide" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#installation-with-helm" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="ML Aide" class="md-header__button md-logo" aria-label="ML Aide" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ML Aide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Installation with Helm
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/MLAide/docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ML Aide" class="md-nav__button md-logo" aria-label="ML Aide" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    ML Aide
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/MLAide/docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        Getting Started
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation-on-localhost/" class="md-nav__link">
+        Installation on localhost
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Installation with Helm
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Installation with Helm
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-the-helm-repository" class="md-nav__link">
+    Adding the Helm Repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-the-chart" class="md-nav__link">
+    Configure the Chart
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure the Chart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#expose-ml-aide-using-ingress" class="md-nav__link">
+    Expose ML Aide using Ingress
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connection-to-s3-compatible-storage" class="md-nav__link">
+    Connection to S3 compatible storage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connection-to-mongodb" class="md-nav__link">
+    Connection to MongoDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connection-to-iam" class="md-nav__link">
+    Connection to IAM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-the-chart" class="md-nav__link">
+    Installing the Chart
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upgrading-the-chart" class="md-nav__link">
+    Upgrading the Chart
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uninstalling-the-chart" class="md-nav__link">
+    Uninstalling the Chart
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Tutorial
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tutorial" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorial
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/setup/" class="md-nav__link">
+        Setup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/data-preparation/" class="md-nav__link">
+        Data Preparation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/model-training/" class="md-nav__link">
+        Model Training
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/model-evaluation/" class="md-nav__link">
+        Model Evaluation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/model-serving/" class="md-nav__link">
+        Model Serving
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Essentials
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Essentials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Essentials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/projects/" class="md-nav__link">
+        Projects
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/experiments/" class="md-nav__link">
+        Experiments
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/runs/" class="md-nav__link">
+        Runs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/artifacts/" class="md-nav__link">
+        Artifacts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/models/" class="md-nav__link">
+        Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/project-settings/" class="md-nav__link">
+        Project Settings
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/users/" class="md-nav__link">
+        Users
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        API Reference
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="API Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          API Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-reference/python-sdk/" class="md-nav__link">
+        Python SDK
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-reference/rest-api/" class="md-nav__link">
+        REST API
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-the-helm-repository" class="md-nav__link">
+    Adding the Helm Repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-the-chart" class="md-nav__link">
+    Configure the Chart
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure the Chart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#expose-ml-aide-using-ingress" class="md-nav__link">
+    Expose ML Aide using Ingress
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connection-to-s3-compatible-storage" class="md-nav__link">
+    Connection to S3 compatible storage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connection-to-mongodb" class="md-nav__link">
+    Connection to MongoDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connection-to-iam" class="md-nav__link">
+    Connection to IAM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-the-chart" class="md-nav__link">
+    Installing the Chart
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upgrading-the-chart" class="md-nav__link">
+    Upgrading the Chart
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uninstalling-the-chart" class="md-nav__link">
+    Uninstalling the Chart
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/MLAide/docs/edit/master/docs/start/installation-with-helm.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="installation-with-helm">Installation with Helm</h1>
+<p>This document describes how to install the ML Aide in your Kubernetes cluster using Helm.
+ML Aide requires an S3 compatible storage and MongoDB to store machine learning models
+and metadata. Additionally, an identity and access management (IAM) system is required.
+The helm chart can be configured to use external, existing installations of S3, MongoDB,
+and IAM or to instantiate those as part of the Helm deployment.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Kubernetes cluster 1.19+</li>
+<li>Helm 3.0+</li>
+<li>Any domain where you can configure A or AAAA records</li>
+</ul>
+<h2 id="adding-the-helm-repository">Adding the Helm Repository</h2>
+<div class="highlight"><pre><span></span><code>helm repo add mlaide https://helm.mlaide.com
+helm repo update
+</code></pre></div>
+<h2 id="configure-the-chart">Configure the Chart</h2>
+<p>ML Aide requires configuration of the following core functionalities:</p>
+<ul>
+<li>Expose ML Aide using Ingress (DNS and TLS configuration)</li>
+<li>Connection to S3 compatible storage</li>
+<li>Connection to MongoDB</li>
+<li>Connection to IAM using OpenID Connect (OIDC)</li>
+</ul>
+<h3 id="expose-ml-aide-using-ingress">Expose ML Aide using Ingress</h3>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">NGINX Ingress</label><div class="tabbed-content">
+<p>TODO</p>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Google Cloud Ingress for HTTPS Load Balancing</label><div class="tabbed-content">
+<p>To use a <a href="https://cloud.google.com/kubernetes-engine/docs/concepts/ingress">Google Kubernetes Engine (GKE) Ingress</a>
+use the following configuration.</p>
+<ol>
+<li>Configure Ingress for webserver and UI</li>
+<li>Optional: Configure Ingress for Keycloak</li>
+<li>Reserve static IP addresses on Google Cloud</li>
+<li>Configure DNS entries</li>
+<li>Create Google managed TLS certificates</li>
+</ol>
+<p>Store the yaml as <code>ingress.yaml</code> in your working directory. Replace <code>&lt;your-domain&gt;</code> with your actual domain.</p>
+<details class="note"><summary>Webserver and UI Ingress</summary><div class="highlight"><pre><span></span><code><span class="nt">webserver</span><span class="p">:</span>
+  <span class="nt">ingress</span><span class="p">:</span>
+    <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">domain</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">api.mlaide.&lt;your-domain&gt;</span>
+    <span class="nt">annotations</span><span class="p">:</span>
+      <span class="nt">networking.gke.io/managed-certificates</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mlaide-webserver-cert</span>
+      <span class="nt">kubernetes.io/ingress.global-static-ip-name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mlaide-webserver</span>
+      <span class="nt">kubernetes.io/ingress.class</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gce</span>
+      <span class="nt">kubernetes.io/ingress.allow-http</span><span class="p">:</span> <span class="s">&quot;false&quot;</span>
+    <span class="nt">hosts</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">api.mlaide.&lt;your-domain&gt;</span>
+      <span class="nt">paths</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/*</span>
+          <span class="nt">pathType</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ImplementationSpecific</span>
+
+<span class="nt">ui</span><span class="p">:</span>
+  <span class="nt">ingress</span><span class="p">:</span>
+    <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">domain</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mlaide.&lt;your-domain&gt;</span>
+    <span class="nt">annotations</span><span class="p">:</span>
+      <span class="nt">networking.gke.io/managed-certificates</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mlaide-ui-cert</span>
+      <span class="nt">kubernetes.io/ingress.global-static-ip-name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mlaide-ui</span>
+      <span class="nt">kubernetes.io/ingress.class</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gce</span>
+      <span class="nt">kubernetes.io/ingress.allow-http</span><span class="p">:</span> <span class="s">&quot;false&quot;</span>
+    <span class="nt">hosts</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mlaide.&lt;your-domain&gt;</span>
+      <span class="nt">paths</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/*</span>
+          <span class="nt">pathType</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ImplementationSpecific</span>
+</code></pre></div>
+</details>
+<p>If you want to use the Keycloak instance shipped with the Helm Chart, you need to add the ingress configuration for Keycloak. Add this to your <code>ingress.yaml</code>.</p>
+<details class="note"><summary>Keycloak Ingress</summary><div class="highlight"><pre><span></span><code><span class="nt">keycloak</span><span class="p">:</span>
+  <span class="nt">ingress</span><span class="p">:</span>
+    <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">domain</span><span class="p">:</span> <span class="s">&quot;login.mlaide.&lt;your-domain&gt;&quot;</span>
+    <span class="nt">rules</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;login.mlaide.&lt;your-domain&gt;&quot;</span>
+        <span class="nt">paths</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/*</span>
+            <span class="nt">pathType</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ImplementationSpecific</span>
+    <span class="nt">tls</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+    <span class="nt">annotations</span><span class="p">:</span>
+      <span class="nt">networking.gke.io/managed-certificates</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mlaide-keycloak-cert</span>
+      <span class="nt">kubernetes.io/ingress.global-static-ip-name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mlaide-keycloak</span>
+      <span class="nt">kubernetes.io/ingress.class</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gce</span>
+      <span class="nt">kubernetes.io/ingress.allow-http</span><span class="p">:</span> <span class="s">&quot;false&quot;</span>
+</code></pre></div>
+</details>
+<p>Google Cloud Load Balancers are assigned to a public IP address. You need to 
+<a href="https://cloud.google.com/compute/docs/ip-addresses/reserve-static-external-ip-address">reserve the IP addresses</a> 
+by running the following commands.</p>
+<details class="note"><summary>Reserve IP addresses</summary><div class="highlight"><pre><span></span><code><span class="c1"># IP for webserver</span>
+gcloud compute addresses create mlaide-webserver <span class="se">\</span>
+  --global <span class="se">\</span>
+  --ip-version IPV4
+
+<span class="c1"># IP for UI</span>
+gcloud compute addresses create mlaide-ui <span class="se">\</span>
+  --global <span class="se">\</span>
+  --ip-version IPV4
+
+<span class="c1"># Optional: IP for Keycloak</span>
+gcloud compute addresses create mlaide-keycloak <span class="se">\</span>
+  --global <span class="se">\</span>
+  --ip-version IPV4
+</code></pre></div>
+</details>
+<p>Use your DNS management tool to configure the A-records for the three domains pointing 
+to the reserved IP addresses. You can get the reserved IPs by using the following 
+command: <code>gcloud compute addresses list</code></p>
+<p>Assign the IPs the following domains:</p>
+<ul>
+<li><code>mlaide-webserver</code> &rarr; <code>api.mlaide.&lt;your-domain&gt;</code></li>
+<li><code>mlaide-ui</code> &rarr; <code>mlaide.&lt;your-domain&gt;</code></li>
+<li>Optional: <code>mlaide-keycloak</code> &rarr; <code>login.mlaide.&lt;your-domain&gt;</code></li>
+</ul>
+<p>After setting the DNS entries we need to create TLS certificates to make ML Aide accessible via HTTPS.
+Use the following command to create the TLS certificates.</p>
+<details class="note"><summary>Create Google-managed certificates</summary><div class="highlight"><pre><span></span><code><span class="c1"># certificate for webserver</span>
+gcloud compute ssl-certificates create mlaide-webserver <span class="se">\</span>
+  --domains<span class="o">=</span>api.mlaide.&lt;your-domain&gt; <span class="se">\</span>
+  --global
+
+<span class="c1"># certificate for UI</span>
+gcloud compute ssl-certificates create mlaide-webserver <span class="se">\</span>
+  --domains<span class="o">=</span>api.mlaide.&lt;your-domain&gt; <span class="se">\</span>
+  --global
+
+<span class="c1"># Optional: certificate for Keycloak</span>
+gcloud compute ssl-certificates create mlaide-webserver <span class="se">\</span>
+  --domains<span class="o">=</span>api.mlaide.&lt;your-domain&gt; <span class="se">\</span>
+  --global
+</code></pre></div>
+</details>
+</div>
+</div>
+<h3 id="connection-to-s3-compatible-storage">Connection to S3 compatible storage</h3>
+<p>ML Aide uses the S3 (simple storage service) API to store artifacts. You can use AWS S3 or any
+other S3 compatible service. The ML Aide helm charts can be installed using MinIO directly running
+on Kubernetes.</p>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">MinIO shipped with Helm Chart</label><div class="tabbed-content">
+<p>Store the shown yaml as <code>s3.yaml</code> in your working directory and adopt it to your needs.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">webserver</span><span class="p">:</span>
+  <span class="nt">s3</span><span class="p">:</span>
+    <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;my-mlaide-s3&quot;</span>
+    <span class="nt">port</span><span class="p">:</span> <span class="s">&quot;9000&quot;</span>
+    <span class="nt">accessKey</span><span class="p">:</span> <span class="s">&quot;my-s3-user&quot;</span>
+    <span class="nt">secretKey</span><span class="p">:</span> <span class="s">&quot;my-s3-password&quot;</span>
+
+<span class="c1"># enable MinIO deployment</span>
+<span class="nt">minio</span><span class="p">:</span>
+  <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">auth</span><span class="p">:</span>
+    <span class="nt">rootUser</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-s3-user</span>
+    <span class="nt">rootPassword</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-s3-password</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">AWS S3</label><div class="tabbed-content">
+<p>TODO</p>
+</div>
+</div>
+<h3 id="connection-to-mongodb">Connection to MongoDB</h3>
+<p>ML Aide uses the MongoDB to store projects, run, metrics, and other metadata. You can use any MongoDB instance or alternatively use MongoDB shipped as part of the helm chart.</p>
+<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">MongoDB shipped with Helm Chart</label><div class="tabbed-content">
+<p>Store the shown yaml as <code>mongodb.yaml</code> in your working directory and adopt it to your needs.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">webserver</span><span class="p">:</span>
+  <span class="nt">mongodb</span><span class="p">:</span>
+    <span class="nt">host</span><span class="p">:</span> <span class="s">&quot;my-mlaide-mongodb&quot;</span>
+    <span class="nt">port</span><span class="p">:</span> <span class="s">&quot;27017&quot;</span>
+    <span class="nt">username</span><span class="p">:</span> <span class="s">&quot;root&quot;</span>
+    <span class="nt">password</span><span class="p">:</span> <span class="s">&quot;mypassword&quot;</span>
+    <span class="nt">database</span><span class="p">:</span> <span class="s">&quot;mlaide&quot;</span>
+    <span class="nt">autoIndexCreation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">authenticationDatabase</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">admin</span>
+
+<span class="c1"># enable MongoDB deployment</span>
+<span class="nt">mongodb</span><span class="p">:</span>
+  <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">auth</span><span class="p">:</span>
+    <span class="nt">databases</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">mlaide</span>
+    <span class="nt">rootPassword</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mypassword</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">MongoDB</label><div class="tabbed-content">
+<p>TODO</p>
+</div>
+</div>
+<h3 id="connection-to-iam">Connection to IAM</h3>
+<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Keycloak shipped with Helm Chart</label><div class="tabbed-content">
+<p>Store the shown yaml as <code>mongodb.yaml</code> in your working directory. Replace <code>&lt;your-domain&gt;</code> with your actual domain.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># enable Keycloak deployment</span>
+<span class="nt">keycloak</span><span class="p">:</span>
+  <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">postgresql</span><span class="p">:</span>
+    <span class="nt">fullnameOverride</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-release-keycloak-postgresql</span>
+
+<span class="nt">oidc</span><span class="p">:</span>
+  <span class="nt">audience</span><span class="p">:</span> <span class="s">&quot;https://api.mlaide.&lt;your-domain&gt;&quot;</span>
+  <span class="nt">issuer</span><span class="p">:</span> <span class="s">&quot;https://login.mlaide.&lt;your-domain&gt;/auth/realms/mlaide-demo&quot;</span>
+  <span class="nt">scope</span><span class="p">:</span> <span class="s">&quot;openid</span><span class="nv"> </span><span class="s">profile</span><span class="nv"> </span><span class="s">email</span><span class="nv"> </span><span class="s">offline_access&quot;</span>
+  <span class="nt">ui</span><span class="p">:</span>
+    <span class="nt">clientId</span><span class="p">:</span> <span class="s">&quot;mlaide-k8s-demo&quot;</span>
+  <span class="nt">webserver</span><span class="p">:</span>
+    <span class="nt">jwkSetUri</span><span class="p">:</span> <span class="s">&quot;https://login.mlaide.&lt;your-domain&gt;/auth/realms/mlaide-demo/protocol/openid-connect/certs&quot;</span>
+    <span class="nt">userInfoEndpoint</span><span class="p">:</span> <span class="s">&quot;https://login.mlaide.&lt;your-domain&gt;/auth/realms/mlaide-demo/protocol/openid-connect/userinfo&quot;</span>
+    <span class="nt">nicknamePropertyName</span><span class="p">:</span> <span class="s">&quot;preferred_username&quot;</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">OpenID Connect provider</label><div class="tabbed-content">
+<p>TODO</p>
+</div>
+</div>
+<h2 id="installing-the-chart">Installing the Chart</h2>
+<p>Install the ML Aide helm chart with a release name <code>my-release</code>:</p>
+<div class="highlight"><pre><span></span><code>helm install --name my-release mlaide/mlaide
+</code></pre></div>
+<h2 id="upgrading-the-chart">Upgrading the Chart</h2>
+<p>To upgrade the release <code>my-release</code>:</p>
+<div class="highlight"><pre><span></span><code>helm upgrade my-release mlaide/mlaide
+</code></pre></div>
+<h2 id="uninstalling-the-chart">Uninstalling the Chart</h2>
+<p>To uninstall the release <code>my-release</code>:</p>
+<div class="highlight"><pre><span></span><code>helm uninstall my-release
+</code></pre></div>
+<h2 id="configuration">Configuration</h2>
+<h1 id="mlaide">mlaide</h1>
+<p><img alt="Version: 0.1.0" src="https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square" /> <img alt="Type: application" src="https://img.shields.io/badge/Type-application-informational?style=flat-square" /> <img alt="AppVersion: 0.1.0" src="https://img.shields.io/badge/AppVersion-0.1.0-informational?style=flat-square" /></p>
+<p>A Helm chart to install ML Aide on Kubernetes</p>
+<h2 id="requirements">Requirements</h2>
+<table>
+<thead>
+<tr>
+<th>Repository</th>
+<th>Name</th>
+<th>Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>https://charts.bitnami.com/bitnami</td>
+<td>minio</td>
+<td>11.10.25</td>
+</tr>
+<tr>
+<td>https://charts.bitnami.com/bitnami</td>
+<td>mongodb</td>
+<td>13.1.5</td>
+</tr>
+<tr>
+<td>https://codecentric.github.io/helm-charts</td>
+<td>keycloak</td>
+<td>18.4.0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="values">Values</h2>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fullnameOverride</td>
+<td>string</td>
+<td><code>""</code></td>
+<td>String to fully override mlaide.fullname template</td>
+</tr>
+<tr>
+<td>imagePullSecrets</td>
+<td>list</td>
+<td><code>[]</code></td>
+<td>The name of the secret containing docker registry credentials. Secret must exist in the same namespace as the helm release.</td>
+</tr>
+<tr>
+<td>keycloak.enabled</td>
+<td>bool</td>
+<td><code>false</code></td>
+<td>Specifies whether this Helm chart should install Keycloak.</td>
+</tr>
+<tr>
+<td>minio.enabled</td>
+<td>bool</td>
+<td><code>false</code></td>
+<td>Specifies whether this Helm chart should install MinIO (S3).</td>
+</tr>
+<tr>
+<td>mongodb.enabled</td>
+<td>bool</td>
+<td><code>false</code></td>
+<td>Specifies whether this Helm chart should install MongoDB.</td>
+</tr>
+<tr>
+<td>nameOverride</td>
+<td>string</td>
+<td><code>""</code></td>
+<td>String to partially override mlaide.fullname template (will maintain the release name)</td>
+</tr>
+<tr>
+<td>oidc</td>
+<td>object</td>
+<td>see below</td>
+<td>Configures OpenID Connect (OIDC) for MLAide.</td>
+</tr>
+<tr>
+<td>oidc.audience</td>
+<td>string</td>
+<td><code>nil</code></td>
+<td>The audience specified in the access token issued by the authorization server.</td>
+</tr>
+<tr>
+<td>oidc.issuer</td>
+<td>string</td>
+<td><code>nil</code></td>
+<td>The issuer URL of the authorization server.</td>
+</tr>
+<tr>
+<td>oidc.scope</td>
+<td>string</td>
+<td><code>nil</code></td>
+<td>The scopes to request during login.</td>
+</tr>
+<tr>
+<td>oidc.ui.clientId</td>
+<td>string</td>
+<td><code>nil</code></td>
+<td>The client ID of MLAide registered on the authorization server.</td>
+</tr>
+<tr>
+<td>oidc.webserver.jwkSetUri</td>
+<td>string</td>
+<td><code>nil</code></td>
+<td>The JWKS URI provided by the authorization server.</td>
+</tr>
+<tr>
+<td>oidc.webserver.nicknamePropertyName</td>
+<td>string</td>
+<td><code>nil</code></td>
+<td>The property name withing the user info JSON containing  the nickname/name of the user.</td>
+</tr>
+<tr>
+<td>oidc.webserver.userInfoEndpoint</td>
+<td>string</td>
+<td><code>nil</code></td>
+<td>The User Info Endpoint URI provided by the authorization server to retrieve user details.</td>
+</tr>
+<tr>
+<td>ui.affinity</td>
+<td>object</td>
+<td><code>{}</code></td>
+<td>Pod affinity.</td>
+</tr>
+<tr>
+<td>ui.autoscaling.enabled</td>
+<td>bool</td>
+<td><code>false</code></td>
+<td>Specifies whether autoscaling should be enabled.</td>
+</tr>
+<tr>
+<td>ui.autoscaling.maxReplicas</td>
+<td>int</td>
+<td><code>100</code></td>
+<td>The maximum number of Pods when autoscaling is enabled.</td>
+</tr>
+<tr>
+<td>ui.autoscaling.minReplicas</td>
+<td>int</td>
+<td><code>1</code></td>
+<td>The minimum number of Pods when autoscaling is enabled.</td>
+</tr>
+<tr>
+<td>ui.autoscaling.targetCPUUtilizationPercentage</td>
+<td>string</td>
+<td><code>nil</code></td>
+<td>The target CPU utilization for the horizontal pod autoscaler.</td>
+</tr>
+<tr>
+<td>ui.autoscaling.targetMemoryUtilizationPercentage</td>
+<td>string</td>
+<td><code>nil</code></td>
+<td>The target memory utilization for the horizontal pod autoscaler.</td>
+</tr>
+<tr>
+<td>ui.image.pullPolicy</td>
+<td>string</td>
+<td><code>"IfNotPresent"</code></td>
+<td>The pull policy for the MLAide UI image.</td>
+</tr>
+<tr>
+<td>ui.image.repository</td>
+<td>string</td>
+<td><code>"mlaide/web-ui"</code></td>
+<td></td>
+</tr>
+<tr>
+<td>ui.image.tag</td>
+<td>string</td>
+<td><code>"latest"</code></td>
+<td>The tag of the MLAide UI image.</td>
+</tr>
+<tr>
+<td>ui.ingress.annotations</td>
+<td>object</td>
+<td><code>{}</code></td>
+<td>Ingress annotations.</td>
+</tr>
+<tr>
+<td>ui.ingress.className</td>
+<td>string</td>
+<td><code>""</code></td>
+<td>The name of the Ingress Class associated with the ingress.</td>
+</tr>
+<tr>
+<td>ui.ingress.enabled</td>
+<td>bool</td>
+<td><code>false</code></td>
+<td>Specifies whether a ingress should be created.</td>
+</tr>
+<tr>
+<td>ui.ingress.hosts[0].host</td>
+<td>string</td>
+<td><code>nil</code></td>
+<td>Host for the ingress rule.</td>
+</tr>
+<tr>
+<td>ui.ingress.hosts[0].paths[0].path</td>
+<td>string</td>
+<td><code>"/"</code></td>
+<td>Path for the Ingress rule.</td>
+</tr>
+<tr>
+<td>ui.ingress.hosts[0].paths[0].pathType</td>
+<td>string</td>
+<td><code>"ImplementationSpecific"</code></td>
+<td>Path Type for the Ingress rule.</td>
+</tr>
+<tr>
+<td>ui.ingress.tls</td>
+<td>list</td>
+<td><code>[]</code></td>
+<td>TLS configuration.</td>
+</tr>
+<tr>
+<td>ui.nodeSelector</td>
+<td>object</td>
+<td><code>{}</code></td>
+<td>Node labels for Pod assignment.</td>
+</tr>
+<tr>
+<td>ui.podAnnotations</td>
+<td>object</td>
+<td><code>{}</code></td>
+<td>Pod annotations for MLAide UI.</td>
+</tr>
+<tr>
+<td>ui.podSecurityContext</td>
+<td>object</td>
+<td><code>{}</code></td>
+<td>Pod security context configuration to be applied for MLAide UI.</td>
+</tr>
+<tr>
+<td>ui.replicaCount</td>
+<td>int</td>
+<td><code>1</code></td>
+<td>The number of replicas of the UI deployment.</td>
+</tr>
+<tr>
+<td>ui.resources</td>
+<td>object</td>
+<td><code>{}</code></td>
+<td>Pod resource requests and limits.</td>
+</tr>
+<tr>
+<td>ui.securityContext</td>
+<td>object</td>
+<td><code>{}</code></td>
+<td>Container security context configuration to be applied for MLAide UI.</td>
+</tr>
+<tr>
+<td>ui.service.port</td>
+<td>int</td>
+<td><code>80</code></td>
+<td>The port for the MLAide UI service.</td>
+</tr>
+<tr>
+<td>ui.service.type</td>
+<td>string</td>
+<td><code>"ClusterIP"</code></td>
+<td>The type of service to create for the MLAide UI.</td>
+</tr>
+<tr>
+<td>ui.serviceAccount.annotations</td>
+<td>object</td>
+<td><code>{}</code></td>
+<td>Annotations to add to the service account.</td>
+</tr>
+<tr>
+<td>ui.serviceAccount.create</td>
+<td>bool</td>
+<td><code>true</code></td>
+<td>Specifies whether a service account should be created.</td>
+</tr>
+<tr>
+<td>ui.serviceAccount.name</td>
+<td>string</td>
+<td><code>"ui"</code></td>
+<td>The name of the service account to use. If not set and create is true, a name is generated using the fullname template.</td>
+</tr>
+<tr>
+<td>ui.tolerations</td>
+<td>list</td>
+<td><code>[]</code></td>
+<td>Node taints to tolerate.</td>
+</tr>
+<tr>
+<td>webserver.affinity</td>
+<td>object</td>
+<td><code>{}</code></td>
+<td>Pod affinity.</td>
+</tr>
+<tr>
+<td>webserver.autoscaling.enabled</td>
+<td>bool</td>
+<td><code>false</code></td>
+<td>Specifies whether autoscaling should be enabled.</td>
+</tr>
+<tr>
+<td>webserver.autoscaling.maxReplicas</td>
+<td>int</td>
+<td><code>100</code></td>
+<td>The maximum number of Pods when autoscaling is enabled.</td>
+</tr>
+<tr>
+<td>webserver.autoscaling.minReplicas</td>
+<td>int</td>
+<td><code>1</code></td>
+<td>The minimum number of Pods when autoscaling is enabled.</td>
+</tr>
+<tr>
+<td>webserver.autoscaling.targetCPUUtilizationPercentage</td>
+<td>string</td>
+<td><code>nil</code></td>
+<td>The target CPU utilization for the horizontal pod autoscaler.</td>
+</tr>
+<tr>
+<td>webserver.autoscaling.targetMemoryUtilizationPercentage</td>
+<td>string</td>
+<td><code>nil</code></td>
+<td>The target memory utilization for the horizontal pod autoscaler.</td>
+</tr>
+<tr>
+<td>webserver.image.pullPolicy</td>
+<td>string</td>
+<td><code>"IfNotPresent"</code></td>
+<td>The pull policy for the MLAide UI image.</td>
+</tr>
+<tr>
+<td>webserver.image.repository</td>
+<td>string</td>
+<td><code>"mlaide/webserver"</code></td>
+<td></td>
+</tr>
+<tr>
+<td>webserver.image.tag</td>
+<td>string</td>
+<td><code>"latest"</code></td>
+<td>The tag of the MLAide UI image.</td>
+</tr>
+<tr>
+<td>webserver.ingress.annotations</td>
+<td>object</td>
+<td><code>{}</code></td>
+<td>Ingress annotations.</td>
+</tr>
+<tr>
+<td>webserver.ingress.className</td>
+<td>string</td>
+<td><code>""</code></td>
+<td>The name of the Ingress Class associated with the ingress.</td>
+</tr>
+<tr>
+<td>webserver.ingress.enabled</td>
+<td>bool</td>
+<td><code>false</code></td>
+<td>Specifies whether a ingress should be created.</td>
+</tr>
+<tr>
+<td>webserver.ingress.hosts[0].host</td>
+<td>string</td>
+<td><code>nil</code></td>
+<td>Host for the ingress rule.</td>
+</tr>
+<tr>
+<td>webserver.ingress.hosts[0].paths[0].path</td>
+<td>string</td>
+<td><code>"/"</code></td>
+<td>Path for the Ingress rule.</td>
+</tr>
+<tr>
+<td>webserver.ingress.hosts[0].paths[0].pathType</td>
+<td>string</td>
+<td><code>"ImplementationSpecific"</code></td>
+<td>Path Type for the Ingress rule.</td>
+</tr>
+<tr>
+<td>webserver.ingress.tls</td>
+<td>list</td>
+<td><code>[]</code></td>
+<td>TLS configuration.</td>
+</tr>
+<tr>
+<td>webserver.loggingLevel</td>
+<td>string</td>
+<td><code>"INFO"</code></td>
+<td>The logging level. Must be one of [TRACE, DEBUG, INFO, WARN, ERROR]</td>
+</tr>
+<tr>
+<td>webserver.mongodb.database</td>
+<td>string</td>
+<td><code>nil</code></td>
+<td>The MongoDB® database name.</td>
+</tr>
+<tr>
+<td>webserver.mongodb.host</td>
+<td>string</td>
+<td><code>nil</code></td>
+<td>The MongoDB® hostname.</td>
+</tr>
+<tr>
+<td>webserver.mongodb.password</td>
+<td>string</td>
+<td><code>nil</code></td>
+<td>The MongoDB® password. This will be stored as a kubernetes secret.</td>
+</tr>
+<tr>
+<td>webserver.mongodb.port</td>
+<td>string</td>
+<td><code>nil</code></td>
+<td>The MongoDB® port.</td>
+</tr>
+<tr>
+<td>webserver.mongodb.username</td>
+<td>string</td>
+<td><code>nil</code></td>
+<td>The MongoDB® username. This will be stored as a kubernetes secret.</td>
+</tr>
+<tr>
+<td>webserver.nodeSelector</td>
+<td>object</td>
+<td><code>{}</code></td>
+<td>Node labels for Pod assignment.</td>
+</tr>
+<tr>
+<td>webserver.podAnnotations</td>
+<td>object</td>
+<td><code>{}</code></td>
+<td>Pod annotations for MLAide UI.</td>
+</tr>
+<tr>
+<td>webserver.podSecurityContext</td>
+<td>object</td>
+<td><code>{}</code></td>
+<td>Pod security context configuration to be applied for MLAide UI.</td>
+</tr>
+<tr>
+<td>webserver.replicaCount</td>
+<td>int</td>
+<td><code>1</code></td>
+<td>The number of replicas of the UI deployment.</td>
+</tr>
+<tr>
+<td>webserver.resources</td>
+<td>object</td>
+<td><code>{}</code></td>
+<td>Pod resource requests and limits.</td>
+</tr>
+<tr>
+<td>webserver.s3.accessKey</td>
+<td>string</td>
+<td><code>nil</code></td>
+<td>The S3 access key. This will be stored as a kubernetes secret.</td>
+</tr>
+<tr>
+<td>webserver.s3.host</td>
+<td>string</td>
+<td><code>nil</code></td>
+<td>The S3 hostname.</td>
+</tr>
+<tr>
+<td>webserver.s3.port</td>
+<td>string</td>
+<td><code>nil</code></td>
+<td>The S3 port.</td>
+</tr>
+<tr>
+<td>webserver.s3.secretKey</td>
+<td>string</td>
+<td><code>nil</code></td>
+<td>The S3 secret key. This will be stored as a kubernetes secret.</td>
+</tr>
+<tr>
+<td>webserver.securityContext</td>
+<td>object</td>
+<td><code>{}</code></td>
+<td>Container security context configuration to be applied for MLAide UI.</td>
+</tr>
+<tr>
+<td>webserver.service.port</td>
+<td>int</td>
+<td><code>80</code></td>
+<td>The port for the MLAide UI service.</td>
+</tr>
+<tr>
+<td>webserver.service.type</td>
+<td>string</td>
+<td><code>"ClusterIP"</code></td>
+<td>The type of service to create for the MLAide UI.</td>
+</tr>
+<tr>
+<td>webserver.serviceAccount.annotations</td>
+<td>object</td>
+<td><code>{}</code></td>
+<td>Annotations to add to the service account.</td>
+</tr>
+<tr>
+<td>webserver.serviceAccount.create</td>
+<td>bool</td>
+<td><code>true</code></td>
+<td>Specifies whether a service account should be created.</td>
+</tr>
+<tr>
+<td>webserver.serviceAccount.name</td>
+<td>string</td>
+<td><code>"webserver"</code></td>
+<td>The name of the service account to use. If not set and create is true, a name is generated using the fullname template.</td>
+</tr>
+<tr>
+<td>webserver.tolerations</td>
+<td>list</td>
+<td><code>[]</code></td>
+<td>Node taints to tolerate.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>Autogenerated from chart metadata using <a href="https://github.com/norwoodj/helm-docs/releases/v1.11.0">helm-docs v1.11.0</a></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../installation-on-localhost/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Installation on localhost
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../../tutorial/introduction/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Introduction
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "search.highlight", "search.share"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4ea5477f.min.js"></script>
+      
+    
+  </body>
+</html>

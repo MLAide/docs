@@ -14,7 +14,7 @@
     
     
       
-        <title>Quickstart - ML Aide</title>
+        <title>Installation on localhost - ML Aide</title>
       
     
     
@@ -63,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#quickstart" class="md-skip">
+        <a href="#installation-on-localhost" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Quickstart
+              Installation on localhost
             
           </span>
         </div>
@@ -247,12 +247,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Quickstart
+          Installation on localhost
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Quickstart
+        Installation on localhost
       </a>
       
         
@@ -315,6 +315,18 @@
   
 </nav>
       
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation-with-helm/" class="md-nav__link">
+        Installation with Helm
+      </a>
     </li>
   
 
@@ -692,35 +704,35 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/MLAide/docs/edit/master/docs/start/quickstart.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/MLAide/docs/edit/master/docs/start/installation-on-localhost.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="quickstart">Quickstart</h1>
-<p>This quickstart shows how to get ML Aide running in your local environment. This quickstart
+                <h1 id="installation-on-localhost">Installation on localhost</h1>
+<p>This guide shows how to install ML Aide on your local environment. This guide
 is only for demo purposes and should not be used for a production setup.</p>
-<p>ML Aide is shipped with Docker. Therefore you need <a href="https://docs.docker.com/get-docker/">Docker</a> 
+<p>ML Aide is shipped with Docker. Therefore you need <a href="https://docs.docker.com/get-docker/">Docker</a>
 installed. On Linux, you also have to install <a href="https://docs.docker.com/compose/install/">Docker Compose</a>.</p>
 <h2 id="clone-repo">Clone Repo</h2>
-<p>Clone the ML Aide git repository
+<p>Clone the ML Aide git repository</p>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/MLAide/MLAide.git
 </code></pre></div>
-For this quickstart, you don't have to compile or build anything. We just need the <code>docker-compose.yaml</code> from 
+<p>For the installation, you don't have to compile or build anything. We only need the <code>docker-compose.yaml</code> from
 the <code>demo/</code> directory.</p>
 <h2 id="prepare">Prepare</h2>
 <p>Add the following entry to your <code>hosts</code> file, to make sure keycloack can verify the user tokens.
-The file is located at <code>/etc/hosts</code> (Unix) or <code>C:\Windows\System32\drivers\etc\hosts</code> (Windows).
+The file is located at <code>/etc/hosts</code> (Unix) or <code>C:\Windows\System32\drivers\etc\hosts</code> (Windows).</p>
 <div class="highlight"><pre><span></span><code>127.0.0.1 keycloak.mlaide
-</code></pre></div></p>
-<p>On Unix systems, you can use the following command to add the entry to your <code>hosts</code> file.
+</code></pre></div>
+<p>On Unix systems, you can use the following command to add the entry to your <code>hosts</code> file.</p>
 <div class="highlight"><pre><span></span><code>echo &#39;127.0.0.1 keycloak.mlaide&#39; | sudo tee -a /etc/hosts
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="start">Start</h2>
-<p>After that start ML Aide from your <code>demo/</code> folder that is located in the cloned repository using:
+<p>After that start ML Aide from your <code>demo/</code> folder that is located in the cloned repository using:</p>
 <div class="highlight"><pre><span></span><code>cd demo
 docker-compose up
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="verify">Verify</h2>
 <p>Now you should have several containers running:</p>
 <ul>
@@ -739,7 +751,7 @@ provides three pre-defined users:</p>
 <li>eve (password = eve1, email = eve@demo.mlaide.com)</li>
 </ul>
 <h2 id="using-the-python-client">Using the Python client</h2>
-<p>To track your machine learning experiments you can use the Python client. Start the 
+<p>To track your machine learning experiments you can use the Python client. Start the
 <a href="../../tutorial/introduction/">Tutorial</a> for your first steps.</p>
                 
               
@@ -774,13 +786,13 @@ provides three pre-defined users:</p>
         </a>
       
       
-        <a href="../../tutorial/introduction/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../installation-with-helm/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Introduction
+              Installation with Helm
             </div>
           </div>
           <div class="md-footer__button md-icon">
