@@ -36,7 +36,7 @@ Track all relevant information of your machine learning models with ML Aide to m
 
 Run ML Aide in your local environment.
 
-[Start Now](start/quickstart.md){: .md-button}
+[Start Now](start/installation-on-localhost.md){: .md-button}
 
 ## Tutorial
 

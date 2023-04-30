@@ -15,8 +15,8 @@ repo_url: https://github.com/MLAide/docs
 nav:
   - index.md
   - "Getting Started":
-      - start/quickstart.md
-      #- start/environment-setup.md
+      - start/installation-on-localhost.md
+      - start/installation-with-helm.md
   - "Tutorial":
       - tutorial/introduction.md
       - tutorial/setup.md

@@ -2,7 +2,7 @@
 Before we start the actual work, we need to set up our project.
 
 ## Run ML Aide
-For this tutorial, ML Aide server and web-UI are required. The [quickstart](../start/quickstart.md) helps to get ML Aide running.
+For this tutorial, ML Aide server and web-UI are required. The [Getting Started](../start/installation-on-localhost.md) tutorial helps to get ML Aide running.
 
 ## Create a workspace directory
 In this tutorial, we will use `~/mlaide-tutorial/` as our working directory.
