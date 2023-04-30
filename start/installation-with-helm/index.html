@@ -898,16 +898,12 @@ helm repo update
 <li>Connection to IAM using OpenID Connect (OIDC)</li>
 </ol>
 <h3 id="1-expose-ml-aide-using-ingress">1. Expose ML Aide using Ingress</h3>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">NGINX Ingress</label><div class="tabbed-content">
-<p>TODO</p>
-</div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Google Cloud Ingress for HTTPS Load Balancing</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Google Cloud Ingress for HTTPS Load Balancing</label><div class="tabbed-content">
 <p>To use a <a href="https://cloud.google.com/kubernetes-engine/docs/concepts/ingress">Google Kubernetes Engine (GKE) Ingress</a>
 use the following configuration.</p>
 <ol>
 <li>Reserve static IP addresses on Google Cloud</li>
 <li>Configure DNS entries</li>
-<li>Create Google managed TLS certificates</li>
 <li>Configure Ingress for webserver and UI</li>
 <li>Optional: Configure Ingress for Keycloak</li>
 </ol>
@@ -1001,6 +997,9 @@ Replace <code>&lt;your-domain&gt;</code> with your actual domain configured in t
       <span class="nt">kubernetes.io/ingress.allow-http</span><span class="p">:</span> <span class="s">&quot;false&quot;</span>
 </code></pre></div>
 </details>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">NGINX Ingress</label><div class="tabbed-content">
+<p>TODO</p>
 </div>
 </div>
 <h3 id="2-connection-to-s3-compatible-storage">2. Connection to S3 compatible storage</h3>
