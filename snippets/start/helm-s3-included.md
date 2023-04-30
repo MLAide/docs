@@ -3,7 +3,7 @@ Store the shown yaml as `s3.yaml` in your working directory and adopt it to your
 ```yaml
 webserver:
   s3:
-    host: "my-release-s3"
+    host: "my-release-minio"
     port: "9000"
     accessKey: "my-s3-user"
     secretKey: "my-s3-password"
