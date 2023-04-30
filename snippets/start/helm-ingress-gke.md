@@ -3,9 +3,8 @@ use the following configuration.
 
 1. Reserve static IP addresses on Google Cloud
 2. Configure DNS entries
-3. Create Google managed TLS certificates
-4. Configure Ingress for webserver and UI
-5. Optional: Configure Ingress for Keycloak
+3. Configure Ingress for webserver and UI
+4. Optional: Configure Ingress for Keycloak
 
 ---
 

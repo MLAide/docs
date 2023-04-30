@@ -30,10 +30,10 @@ ML Aide requires configuration of the following core functionalities:
 
 ### 1. Expose ML Aide using Ingress
 
-=== "NGINX Ingress"
-    TODO
 === "Google Cloud Ingress for HTTPS Load Balancing"
     --8<-- "snippets/start/helm-ingress-gke.md"
+=== "NGINX Ingress"
+    TODO
 
 ### 2. Connection to S3 compatible storage
 ML Aide uses the S3 (simple storage service) API to store artifacts. You can use AWS S3 or any
