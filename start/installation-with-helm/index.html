@@ -326,43 +326,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-create-google-managed-tls-certificates" class="md-nav__link">
-    3. Create Google managed TLS certificates
+  <a href="#3-configure-ingress-for-webserver-and-ui" class="md-nav__link">
+    3. Configure Ingress for webserver and UI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-optional-configure-ingress-for-keycloak" class="md-nav__link">
+    4. Optional: Configure Ingress for Keycloak
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gcloud-compute-ssl-certificates-list" class="md-nav__link">
-    gcloud compute ssl-certificates list
-
-  </a>
-  
-    <nav class="md-nav" aria-label="gcloud compute ssl-certificates list
-">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#4-configure-ingress-for-webserver-and-ui" class="md-nav__link">
-    4. Configure Ingress for webserver and UI
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-optional-configure-ingress-for-keycloak" class="md-nav__link">
-    5. Optional: Configure Ingress for Keycloak
-  </a>
   
 </li>
         
@@ -799,43 +777,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-create-google-managed-tls-certificates" class="md-nav__link">
-    3. Create Google managed TLS certificates
+  <a href="#3-configure-ingress-for-webserver-and-ui" class="md-nav__link">
+    3. Configure Ingress for webserver and UI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-optional-configure-ingress-for-keycloak" class="md-nav__link">
+    4. Optional: Configure Ingress for Keycloak
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#gcloud-compute-ssl-certificates-list" class="md-nav__link">
-    gcloud compute ssl-certificates list
-
-  </a>
-  
-    <nav class="md-nav" aria-label="gcloud compute ssl-certificates list
-">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#4-configure-ingress-for-webserver-and-ui" class="md-nav__link">
-    4. Configure Ingress for webserver and UI
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-optional-configure-ingress-for-keycloak" class="md-nav__link">
-    5. Optional: Configure Ingress for Keycloak
-  </a>
   
 </li>
         
@@ -988,31 +944,7 @@ command: <code>gcloud compute addresses list</code></p>
 <li>Optional: <code>mlaide-keycloak</code> &rarr; <code>login.mlaide.&lt;your-domain&gt;</code></li>
 </ul>
 <hr />
-<h4 id="3-create-google-managed-tls-certificates">3. Create Google managed TLS certificates</h4>
-<p>After setting the DNS entries we need to create TLS certificates to make ML Aide accessible via HTTPS.
-Use the following command to create the TLS certificates.</p>
-<details class="note"><summary>Create Google-managed certificates</summary><div class="highlight"><pre><span></span><code><span class="c1"># certificate for webserver</span>
-gcloud compute ssl-certificates create mlaide-webserver-cert <span class="se">\</span>
-  --domains<span class="o">=</span>api.mlaide.&lt;your-domain&gt; <span class="se">\</span>
-  --global
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1"># certificate for UI</span>
-gcloud compute ssl-certificates create mlaide-ui-cert <span class="se">\</span>
-  --domains<span class="o">=</span>mlaide.&lt;your-domain&gt; <span class="se">\</span>
-  --global
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1"># Optional: certificate for Keycloak</span>
-gcloud compute ssl-certificates create mlaide-keycloak-cert <span class="se">\</span>
-  --domains<span class="o">=</span>login.mlaide.&lt;your-domain&gt; <span class="se">\</span>
-  --global
-</code></pre></div>
-</details>
-<p>Creating a Google managed certificate can take up to 60 minutes according 
-to the <a href="https://cloud.google.com/load-balancing/docs/ssl-certificates/troubleshooting">Google Cloud documentation</a>. Use the following command to check the status of the requested certificates. 
-If the <code>PROVISIONING_STATUS</code> shows <code>...</code> the certificates have been created successfully.</p>
-<h2 id="gcloud-compute-ssl-certificates-list"><div class="highlight"><pre><span></span><code>gcloud compute ssl-certificates list
-</code></pre></div></h2>
-<h4 id="4-configure-ingress-for-webserver-and-ui">4. Configure Ingress for webserver and UI</h4>
+<h4 id="3-configure-ingress-for-webserver-and-ui">3. Configure Ingress for webserver and UI</h4>
 <p>Store the shown yaml as <code>ingress.yaml</code> in your working directory. 
 Replace <code>&lt;your-domain&gt;</code> with your actual domain configured in the step above.</p>
 <details class="note"><summary>Webserver and UI Ingress</summary><div class="highlight"><pre><span></span><code><span class="nt">webserver</span><span class="p">:</span>
@@ -1044,10 +976,13 @@ Replace <code>&lt;your-domain&gt;</code> with your actual domain configured in t
       <span class="nt">paths</span><span class="p">:</span>
         <span class="p p-Indicator">-</span> <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/*</span>
           <span class="nt">pathType</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ImplementationSpecific</span>
+
+<span class="nt">googleCloudPlatform</span><span class="p">:</span>
+  <span class="nt">enableManagedCertificate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </details>
 <hr />
-<h4 id="5-optional-configure-ingress-for-keycloak">5. Optional: Configure Ingress for Keycloak</h4>
+<h4 id="4-optional-configure-ingress-for-keycloak">4. Optional: Configure Ingress for Keycloak</h4>
 <p>If you want to use the Keycloak instance shipped with the Helm Chart, you need to add the ingress configuration for Keycloak. Add this to your <code>ingress.yaml</code>.</p>
 <details class="note"><summary>Keycloak Ingress</summary><div class="highlight"><pre><span></span><code><span class="nt">keycloak</span><span class="p">:</span>
   <span class="nt">ingress</span><span class="p">:</span>
