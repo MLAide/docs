@@ -17,6 +17,11 @@ A Helm chart to install ML Aide on Kubernetes
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | fullnameOverride | string | `""` | String to fully override mlaide.fullname template |
+| googleCloudPlatform | object | `{"enableManagedCertificate":false,"keycloakCertificateName":"mlaide-keycloak-cert","uiCertificateName":"mlaide-ui-cert","webserverCertificateName":"mlaide-webserver-cert"}` | Google Cloud Platform specific configuration. Use this only if you are  using Google Kubernetes Engine (GKE). |
+| googleCloudPlatform.enableManagedCertificate | bool | `false` | Enable automatic TLS certificate management. With this option enabled Google Cloud will automatically create TLS certificates. |
+| googleCloudPlatform.keycloakCertificateName | string | `"mlaide-keycloak-cert"` | The name of the managed certificate to be created for the built-in Keycloak. The same name must be listed in  `keycloak.ingress.annotations."networking.gke.io/managed-certificates"`. This property is only required if you are using the built-in Keycloak installation. |
+| googleCloudPlatform.uiCertificateName | string | `"mlaide-ui-cert"` | The name of the managed certificate to be created for the UI. The same name must be listed in  `ui.ingress.annotations."networking.gke.io/managed-certificates"`. |
+| googleCloudPlatform.webserverCertificateName | string | `"mlaide-webserver-cert"` | The name of the managed certificate to be created for the webserver. The same name must be listed in  `webserver.ingress.annotations."networking.gke.io/managed-certificates"`. |
 | imagePullSecrets | list | `[]` | The name of the secret containing docker registry credentials. Secret must exist in the same namespace as the helm release. |
 | keycloak.enabled | bool | `false` | Specifies whether this Helm chart should install Keycloak. |
 | minio.enabled | bool | `false` | Specifies whether this Helm chart should install MinIO (S3). |
@@ -64,9 +69,9 @@ A Helm chart to install ML Aide on Kubernetes
 | webserver.autoscaling.minReplicas | int | `1` | The minimum number of Pods when autoscaling is enabled. |
 | webserver.autoscaling.targetCPUUtilizationPercentage | string | `nil` | The target CPU utilization for the horizontal pod autoscaler. |
 | webserver.autoscaling.targetMemoryUtilizationPercentage | string | `nil` | The target memory utilization for the horizontal pod autoscaler. |
-| webserver.image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the MLAide UI image. |
+| webserver.image.pullPolicy | string | `"IfNotPresent"` | The pull policy for the MLAide webserver image. |
 | webserver.image.repository | string | `"mlaide/webserver"` |  |
-| webserver.image.tag | string | `"latest"` | The tag of the MLAide UI image. |
+| webserver.image.tag | string | `"latest"` | The tag of the MLAide webserver image. |
 | webserver.ingress.annotations | object | `{}` | Ingress annotations. |
 | webserver.ingress.className | string | `""` | The name of the Ingress Class associated with the ingress. |
 | webserver.ingress.enabled | bool | `false` | Specifies whether a ingress should be created. |
@@ -81,17 +86,17 @@ A Helm chart to install ML Aide on Kubernetes
 | webserver.mongodb.port | string | `nil` | The MongoDB® port. |
 | webserver.mongodb.username | string | `nil` | The MongoDB® username. This will be stored as a kubernetes secret. |
 | webserver.nodeSelector | object | `{}` | Node labels for Pod assignment. |
-| webserver.podAnnotations | object | `{}` | Pod annotations for MLAide UI. |
-| webserver.podSecurityContext | object | `{}` | Pod security context configuration to be applied for MLAide UI. |
-| webserver.replicaCount | int | `1` | The number of replicas of the UI deployment. |
+| webserver.podAnnotations | object | `{}` | Pod annotations for MLAide webserver. |
+| webserver.podSecurityContext | object | `{}` | Pod security context configuration to be applied for MLAide webserver. |
+| webserver.replicaCount | int | `1` | The number of replicas of the webserver deployment. |
 | webserver.resources | object | `{}` | Pod resource requests and limits. |
 | webserver.s3.accessKey | string | `nil` | The S3 access key. This will be stored as a kubernetes secret. |
 | webserver.s3.host | string | `nil` | The S3 hostname. |
 | webserver.s3.port | string | `nil` | The S3 port. |
 | webserver.s3.secretKey | string | `nil` | The S3 secret key. This will be stored as a kubernetes secret. |
-| webserver.securityContext | object | `{}` | Container security context configuration to be applied for MLAide UI. |
-| webserver.service.port | int | `80` | The port for the MLAide UI service. |
-| webserver.service.type | string | `"ClusterIP"` | The type of service to create for the MLAide UI. |
+| webserver.securityContext | object | `{}` | Container security context configuration to be applied for MLAide webserver. |
+| webserver.service.port | int | `80` | The port for the MLAide webserver service. |
+| webserver.service.type | string | `"ClusterIP"` | The type of service to create for the MLAide webserver. |
 | webserver.serviceAccount.annotations | object | `{}` | Annotations to add to the service account. |
 | webserver.serviceAccount.create | bool | `true` | Specifies whether a service account should be created. |
 | webserver.serviceAccount.name | string | `"webserver"` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template. |

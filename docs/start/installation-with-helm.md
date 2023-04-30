@@ -23,19 +23,19 @@ helm repo update
 
 ML Aide requires configuration of the following core functionalities:
 
-- Expose ML Aide using Ingress (DNS and TLS configuration)
-- Connection to S3 compatible storage
-- Connection to MongoDB
-- Connection to IAM using OpenID Connect (OIDC)
+1. Expose ML Aide using Ingress (DNS and TLS configuration)
+2. Connection to S3 compatible storage
+3. Connection to MongoDB
+4. Connection to IAM using OpenID Connect (OIDC)
 
-### Expose ML Aide using Ingress
+### 1. Expose ML Aide using Ingress
 
 === "NGINX Ingress"
     TODO
 === "Google Cloud Ingress for HTTPS Load Balancing"
     --8<-- "snippets/start/helm-ingress-gke.md"
 
-### Connection to S3 compatible storage
+### 2. Connection to S3 compatible storage
 ML Aide uses the S3 (simple storage service) API to store artifacts. You can use AWS S3 or any
 other S3 compatible service. The ML Aide helm charts can be installed using MinIO directly running
 on Kubernetes.
@@ -45,7 +45,7 @@ on Kubernetes.
 === "AWS S3"
     TODO
 
-### Connection to MongoDB
+### 3. Connection to MongoDB
 ML Aide uses the MongoDB to store projects, run, metrics, and other metadata. You can use any MongoDB instance or alternatively use MongoDB shipped as part of the helm chart.
 
 === "MongoDB shipped with Helm Chart"
@@ -53,7 +53,7 @@ ML Aide uses the MongoDB to store projects, run, metrics, and other metadata. Yo
 === "MongoDB"
     TODO
 
-### Connection to IAM
+### 4. Connection to IAM
 === "Keycloak shipped with Helm Chart"
     --8<-- "snippets/start/helm-iam-included.md"
 === "OpenID Connect provider"
@@ -64,12 +64,27 @@ ML Aide uses the MongoDB to store projects, run, metrics, and other metadata. Yo
 Install the ML Aide helm chart with a release name `my-release`:
 
 ```bash
-helm install --name my-release mlaide/mlaide
+helm install my-release mlaide/mlaide -f ingress.yaml -f s3.yaml -f mongodb.yaml -f iam.yaml
 ```
+
+## Try it out
+Open the configured URL (`https://mlaide.<your-domain>`) for MLAide in your browser.
+
+If you have installed MLAide using the built-in Keycloak, you can log in using the
+pre-configured users:
+
+* User: `adam@example.com`<br/>
+  Password: `adam1`
+* User: `bob@example.com`<br/>
+  Password: `bob1`
+
+If you have used another OpenID connect provider, use any registered user within
+the particular provider.
 
 ## Upgrading the Chart
 
-To upgrade the release `my-release`:
+If you have a running installation of MLAide using Helm, you can update configured
+paremeters using the follong command::
 
 ```
 helm upgrade my-release mlaide/mlaide
@@ -77,7 +92,7 @@ helm upgrade my-release mlaide/mlaide
 
 ## Uninstalling the Chart
 
-To uninstall the release `my-release`:
+To uninstall the release `my-release` use the following command:
 
 ```
 helm uninstall my-release

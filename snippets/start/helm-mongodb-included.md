@@ -3,7 +3,7 @@ Store the shown yaml as `mongodb.yaml` in your working directory and adopt it to
 ```yaml
 webserver:
   mongodb:
-    host: "my-mlaide-mongodb"
+    host: "my-release-mongodb"
     port: "27017"
     username: "root"
     password: "mypassword"
@@ -15,6 +15,10 @@ webserver:
 mongodb:
   enabled: true
   auth:
+    usernames:
+    - my-user
+    passwords:
+    - my-pw
     databases:
     - mlaide
     rootPassword: mypassword

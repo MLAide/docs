@@ -1,4 +1,4 @@
-Store the shown yaml as `mongodb.yaml` in your working directory. Replace `<your-domain>` with your actual domain.
+Store the shown yaml as `iam.yaml` in your working directory. Replace `<your-domain>` with your actual domain.
 
 ```yaml
 # enable Keycloak deployment
