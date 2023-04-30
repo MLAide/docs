@@ -49,41 +49,7 @@ Assign the IPs to the following domains using your DNS configuration tool:
 * Optional: `mlaide-keycloak` &rarr; `login.mlaide.<your-domain>`
 
 ---
-#### 3. Create Google managed TLS certificates
-After setting the DNS entries we need to create TLS certificates to make ML Aide accessible via HTTPS.
-Use the following command to create the TLS certificates.
-
-??? note "Create Google-managed certificates"
-    ```shell
-    # certificate for webserver
-    gcloud compute ssl-certificates create mlaide-webserver-cert \
-      --domains=api.mlaide.<your-domain> \
-      --global
-    ```
-
-    ```shell
-    # certificate for UI
-    gcloud compute ssl-certificates create mlaide-ui-cert \
-      --domains=mlaide.<your-domain> \
-      --global
-    ```
-
-    ```shell
-    # Optional: certificate for Keycloak
-    gcloud compute ssl-certificates create mlaide-keycloak-cert \
-      --domains=login.mlaide.<your-domain> \
-      --global
-    ```
-
-Creating a Google managed certificate can take up to 60 minutes according 
-to the [Google Cloud documentation](https://cloud.google.com/load-balancing/docs/ssl-certificates/troubleshooting). Use the following command to check the status of the requested certificates. 
-If the `PROVISIONING_STATUS` shows `...` the certificates have been created successfully.
-
-```shell
-gcloud compute ssl-certificates list
-```
----
-#### 4. Configure Ingress for webserver and UI
+#### 3. Configure Ingress for webserver and UI
 Store the shown yaml as `ingress.yaml` in your working directory. 
 Replace `<your-domain>` with your actual domain configured in the step above.
 
@@ -118,10 +84,13 @@ Replace `<your-domain>` with your actual domain configured in the step above.
           paths:
             - path: /*
               pathType: ImplementationSpecific
+
+    googleCloudPlatform:
+      enableManagedCertificate: true
     ```
 
 ---
-#### 5. Optional: Configure Ingress for Keycloak
+#### 4. Optional: Configure Ingress for Keycloak
 If you want to use the Keycloak instance shipped with the Helm Chart, you need to add the ingress configuration for Keycloak. Add this to your `ingress.yaml`.
 
 ??? note "Keycloak Ingress"

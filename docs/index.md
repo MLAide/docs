@@ -34,9 +34,10 @@ Track all relevant information of your machine learning models with ML Aide to m
 
 ## Getting Started
 
-Run ML Aide in your local environment.
+Run ML Aide in your preferred environment.
 
-[Start Now](start/installation-on-localhost.md){: .md-button}
+[Start on localhost](start/installation-on-localhost.md){: .md-button}
+[Start on Kubernetes](start/installation-with-helm.md){: .md-button}
 
 ## Tutorial
 
